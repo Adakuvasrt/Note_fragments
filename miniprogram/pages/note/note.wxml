@@ -1,0 +1,9 @@
+<l-card type="cover" image="/img/welldone.svg" title="">
+  <view class="content">
+    <l-Textarea auto-focus auto-height adjust-position confirm-type="done" indicator maxlength="140"
+      placeholder="记录你的灵感火花..." />
+  </view>
+</l-card>
+<view class="btn">
+  <l-button size="large">提交</l-button>
+</view>

@@ -1,0 +1,8 @@
+.btn {
+  margin: 26rpx 26rpx;
+  text-align: center;
+}
+
+.content {
+  margin-top: 34rpx;
+}

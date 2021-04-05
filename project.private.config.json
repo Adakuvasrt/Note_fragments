@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -10,7 +11,25 @@
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "pages/about/about",
+          "pathName": "pages/about/about",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/note/note",
+          "pathName": "pages/note/note",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/recording/recording",
+          "pathName": "pages/recording/recording",
+          "scene": null
+        }
+      ]
     }
   }
 }

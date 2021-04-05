@@ -1,2 +1,28 @@
-<view>Hello</view>
-<l-button type="default">默认按钮</l-button>
+<view class="page">
+  <view class="page__bd">
+    <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+  </view>
+</view>
+<view class="cards">
+  <view class="card" wx:for="{{7}}" wx:key="index">
+    <l-card type="avatar" l-class="card" image="/img/地理.png" title="七月夏天" describe="几分钟前">
+      <!-- 此处为content -->
+      <view class="avter-content">
+        2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+      </view>
+      <view class="avter-share-container">
+        <view class="like-container">
+          <l-icon name="like" color="#F4516C" size="28" />
+          <view class="number">160喜欢</view>
+        </view>
+        <view class="like-container">
+          <l-icon name="comment" color="#666" size="28" />
+          <view class="number">10评论</view>
+        </view>
+      </view>
+      <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
+        + 关注
+      </l-tag>
+    </l-card>
+  </view>
+</view>

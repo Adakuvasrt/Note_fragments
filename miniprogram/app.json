@@ -1,28 +1,43 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/note/note",
+    "pages/recording/recording",
+    "pages/about/about"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "笔记碎片",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#ffffff",
     "list": [{
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "img/横向项目.png",
-        "selectedIconPath": "img/横向项目.png"
+        "iconPath": "img/地理 (1).png",
+        "selectedIconPath": "img/地理.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/note/note",
+        "text": "笔记",
+        "iconPath": "img/物理 (1).png",
+        "selectedIconPath": "img/物理.png"
+      },
+      {
+        "pagePath": "pages/recording/recording",
+        "text": "复习",
+        "iconPath": "img/汉语文 (1).png",
+        "selectedIconPath": "img/汉语文 (4).png"
+      },
+      {
+        "pagePath": "pages/about/about",
         "text": "我的",
-        "iconPath": "img/科研人员.png",
-        "selectedIconPath": "img/科研人员.png"
+        "iconPath": "img/政治 (3).png",
+        "selectedIconPath": "img/政治 (4).png"
       }
     ]
   },
@@ -33,6 +48,9 @@
   },
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
-    "l-button": "/miniprogram_npm/lin-ui/button/index"
+    "l-button": "/miniprogram_npm/lin-ui/button/index",
+    "l-card": "/miniprogram_npm/lin-ui/card/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-tag": "/miniprogram_npm/lin-ui/tag/index"
   }
 }

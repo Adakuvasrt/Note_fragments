@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="avatar">
+    <l-avatar open-data="{{['userAvatarUrl','userNickName']}}" />
+    <div class="avatar-tag">
+      <l-tag shape="circle" size="medium" type="reading" height="46" bg-color="#999">会员 v1</l-tag>
+    </div>
+  </view>
+  <view class="dolist">
+    <l-list title="积分" icon="notification" class="item" tag-content="428" tagShape="circle" tag-position="right" />
+    <l-list title="消息" icon="soud" badge-count="15" badge-position="right" class="item" />
+    <l-list title="笔记" icon="edit" class="item" />
+    <l-list title="喜欢" icon="like" class="item" />
+    <l-list title="收藏" icon="favor" class="item" />
+  </view>
+  <view class="contact">
+    <l-button open-type="contact">联系客服</l-button>
+  </view>
+
+
+  <view class="pic">
+    <image src="/img/goals.svg" mode="widthFix"></image>
+  </view>
+</view>

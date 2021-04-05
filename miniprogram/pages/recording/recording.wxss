@@ -1,0 +1,27 @@
+.container {
+  margin-top: 50rpx;
+}
+
+.swiperitem {
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.cardcontent {
+  padding: 24rpx;
+  height: 80%;
+  width: 100%;
+}
+
+.btns {
+  margin-top: 80rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pic {
+  margin: 25rpx 190rpx;
+  display: flex;
+  justify-content: center;
+}
