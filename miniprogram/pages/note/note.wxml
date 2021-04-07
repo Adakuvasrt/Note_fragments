@@ -1,12 +1,8 @@
 <view class="container">
   <view class="main">
     <view class="title">发表想法</view>
-    <textarea bindinput="toTowxml" model:value="{{val}}" placeholder="开始书写吧" maxlength="180" show-confirm-bar="false"
-      disable-default-padding="true" confirm-hold="true" auto-height class="write"></textarea>
-
+    <textarea model:value="{{val}}" placeholder="开始书写吧" maxlength="180" show-confirm-bar="false"
+      disable-default-padding="true" confirm-hold="true" class="write"></textarea>
     <button bind:tap="toDetail">预览</button>
-
-
-
   </view>
 </view>

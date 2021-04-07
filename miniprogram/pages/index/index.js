@@ -3,15 +3,16 @@ const app = getApp();
 Page({
 
   data: {
-    essays: null,
-    articles: null,
+    essays: [],
+    articles: [],
     scrollTop: undefined,
     activekey: "0",
     currentIndex: "0",
     bulletin: "欢迎来到笔记碎片", //公告栏
     triggered: true, //自定义scrol-lview下拉刷新
     inputShowed: false, //searchbar
-    inputVal: "" //searchbar
+    inputVal: "", //searchbar
+    haveloadall:false //是否全部加载完成
   },
   changeTabs(activeKey) {
     this.setData({
@@ -31,15 +32,20 @@ Page({
       url: '/pages/essay/essay?essay=' + encodeURIComponent(c),
     })
   },
-
+  /*
+   *  自定义下拉刷新事件 
+   */
   refresh() {
     wx.showLoading({
       title: '加载中',
     })
+    this.setData({
+      haveloadall:false
+    })
     wx.cloud.callFunction({
       name: "getArticle",
       data: {
-        count: 9,
+        count: 6,
         skipNum: 0
       },
     }).then(res => {
@@ -75,8 +81,75 @@ Page({
     }).catch(res => {
       console.log(res);
     })
-
   },
+
+  /*
+   *
+   *自定义下拉触底事件
+   * */
+  scrolltolower() {
+    console.log("触底了");
+    if(this.data.haveloadall===true){
+      wx.hideLoading({
+        success: (res) => {
+          console.log("加载完成")
+        },
+      })
+      return;
+    }
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.cloud.callFunction({
+      name: "getArticle",
+      data: {
+        count: 6,
+        skipNum: this.data.articles.length
+      },
+    }).then(res => {
+      if(res.result.data.length===0) {
+        this.setData({
+          haveloadall:true
+        })
+        wx.hideLoading({
+          success: (res) => {
+            console.log("加载完成")
+          },
+        })
+        return;
+      }
+      let arr = this.data.essays;
+      arr = arr.concat(res.result.data)
+      this.setData({
+        essays:arr
+      })
+      let s;
+      let temp = [];
+      arr.forEach((item, index) => {
+        s = app.towxml(item.content, 'markdown', {
+          events: { // 为元素绑定的事件方法
+            tap: (e) => {
+              // console.log(e);
+              // this.clickCard(e);
+            }
+          }
+        });
+        temp.push(s)
+        this.setData({
+          articles: temp
+        })
+      })
+      wx.hideLoading({
+        success: (res) => {
+          console.log("加载完成")
+        },
+      })
+    })
+    
+  },
+
+
+
   search: function (value) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -151,42 +224,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // let s
-    // if (this.data.articles !== null) {
-    //   let item = this.data.essays[0]
-    //   s = app.towxml(item.content, 'markdown', {
-    //     events: { // 为元素绑定的事件方法
-    //       tap: (e) => {
-    //         // console.log(e);
-    //         // this.clickCard(e);
-    //       }
-    //     }
-    //   });
-    //   let temp = [s]
-    //   this.setData({
-    //     articles: temp
-    //   })
-    // }
-    //   if (this.data.articles !== null) {
-    //   let arr = this.data.essays;
-    //   let s;
-    //   let temp = [];
-    //   arr.forEach((item, index) => {
-    //     s = app.towxml(item.content, 'markdown', {
-    //       events: { // 为元素绑定的事件方法
-    //         tap: (e) => {
-    //           // console.log(e);
-    //           // this.clickCard(e);
-    //         }
-    //       }
-
-    //     });
-    //     temp.push(s)
-    //     this.setData({
-    //       articles: temp
-    //     })
-    //   })
-    // }
+    
   },
 
   /**
@@ -224,7 +262,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log("上拉触底")
   },
 
   /**

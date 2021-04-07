@@ -1,6 +1,6 @@
 <view class="container">
   <view class="avatar" bindtap="toLogin">
-    <l-avatar text="{{nickName}}" placement="right" src="{{avatarUrl}}" />
+    <l-avatar open-data="{{['userAvatarUrl','userNickName']}}" />
     <div class="avatar-tag">
       <l-tag shape="circle" size="medium" type="reading" height="46" bg-color="#999">{{vipLevel}}</l-tag>
     </div>
