@@ -1,3 +1,5 @@
+
+
 <view class="container">
   <view class="pic">
     <image src="/img/reading.svg" mode="widthFix"></image>

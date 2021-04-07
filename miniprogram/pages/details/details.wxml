@@ -1,0 +1,6 @@
+<towxml nodes="{{article}}" />
+
+<view class="btns">
+  <button bindtap="returnBack">返回</button>
+  <button bindtap="publish">发表</button>
+</view>

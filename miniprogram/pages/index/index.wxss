@@ -1,20 +1,3 @@
-.cards {
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  color: rgba(0, 0, 0, .85);
-  line-height: 1.5715;
-  margin: 14rpx 3rpx;
-}
-
-.card {
-  margin: 0rpx 0rpx;
-  padding: 17rpx;
-}
-
 .avter-share-container {
   display: flex;
   justify-content: flex-end;
@@ -29,16 +12,6 @@
   margin: 6rpx;
 }
 
-.content {
-  margin-top: 10rpx;
-  color: #666;
-  font-size: 26rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-}
 
 .avter-content {
   margin-top: 10rpx;
@@ -70,31 +43,36 @@
   margin-left: 12rpx;
 }
 
-.card-dot {
-  width: 18rpx;
-  height: 18rpx;
-  border-radius: 50%;
-  border: 6rpx solid #3963bc;
-  margin-left: 26rpx;
-}
 
-.card-top {
+
+.container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 750rpx;
-  height: 100rpx;
+  flex-direction: column;
+  height: 100vh;
 }
 
-.content-name {
-  font-size: 28rpx;
-  font-family: PingFangSC-Regular;
-  font-weight: 400;
-  color: rgba(69, 82, 107, 1);
-  line-height: 20px;
-  margin-left: 8px;
+.body {
+  flex: 1;
+  position: relative;
+}
+
+.body-scroll {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 9rpx;
+  overflow: scroll;
 }
 
 .card {
-  margin: 10rpx auto !important;
+  margin: 9rpx auto;
+  width: 100%;
 }

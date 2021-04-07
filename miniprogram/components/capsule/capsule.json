@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "l-capsule-bar": "/miniprogram_npm/lin-ui/capsule-bar/index"
+  }
+}

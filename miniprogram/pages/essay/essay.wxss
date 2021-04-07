@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  margin-top: 26rpx;
+  margin-left: 26rpx;
+  text-align: left;
+  border-bottom: 1px dashed red;
+}
+
+.body {
+  border-bottom: 1px dashed red;
+}
+
+.footer {}

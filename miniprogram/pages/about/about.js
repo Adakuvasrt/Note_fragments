@@ -1,11 +1,41 @@
 // pages/about/about.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    avatarUrl: "/img/头像修改.png",
+    nickName: " 点击登录",
+    vipLevel: "未登录"
+  },
 
+  toLogin() {
+    if (app.globalData.isLogin) return;
+    wx.getUserProfile({
+      desc: "获取头像昵称"
+
+    }).then(res => {
+      this.setData({
+        nickName: res.userInfo.nickName,
+        avatarUrl: res.userInfo.avatarUrl
+      })
+      app.globalData.nickName = res.userInfo.nickName;
+      app.globalData.avatarUrl = res.userInfo.avatarUrl;
+      app.globalData.isLogin = true;
+      wx.showToast({
+        title: '登陆成功',
+        icon: 'success'
+      })
+      console.log(this.data.nickName + " 登陆成功");
+    }).catch(res => {
+      wx.showToast({
+        title: '取消登陆',
+        icon: 'error'
+      })
+      console.log("登陆失败");
+    })
   },
 
   /**
@@ -46,9 +76,9 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  // onPullDownRefresh: function () {
 
-  },
+  // },
 
   /**
    * 页面上拉触底事件的处理函数

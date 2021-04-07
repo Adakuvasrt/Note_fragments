@@ -1,9 +1,12 @@
-<l-card type="cover" image="/img/welldone.svg" title="">
-  <view class="content">
-    <l-Textarea auto-focus auto-height adjust-position confirm-type="done" indicator maxlength="140"
-      placeholder="记录你的灵感火花..." />
+<view class="container">
+  <view class="main">
+    <view class="title">发表想法</view>
+    <textarea bindinput="toTowxml" model:value="{{val}}" placeholder="开始书写吧" maxlength="180" show-confirm-bar="false"
+      disable-default-padding="true" confirm-hold="true" auto-height class="write"></textarea>
+
+    <button bind:tap="toDetail">预览</button>
+
+
+
   </view>
-</l-card>
-<view class="btn">
-  <l-button size="large">提交</l-button>
 </view>

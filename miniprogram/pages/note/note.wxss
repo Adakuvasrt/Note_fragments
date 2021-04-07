@@ -1,8 +1,91 @@
-.btn {
-  margin: 26rpx 26rpx;
-  text-align: center;
+@import "../../iconfont/iconfont.wxss";
+
+.container {
+  position: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
-.content {
-  margin-top: 34rpx;
+.main {
+  flex: 1;
+}
+
+.title {
+  text-align: center;
+  margin: 0 auto;
+
+}
+
+.show {
+  margin: 15rpx;
+  overflow: scroll;
+  border: 1px dashed black;
+}
+
+.md {
+  height: 100%;
+  border: none;
+}
+
+
+.write {
+  margin: 15rpx;
+  height: 30vh;
+  width: 100%;
+  padding: 12rpx;
+  border: 1px dashed black;
+
+}
+
+.ql-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: auto;
+  padding: 10px 10px 20px 10px;
+}
+
+.ql-active {
+  color: #38C098;
+}
+
+.iconfont {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.toolbar {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #ECECEC;
+  border-left: none;
+  border-right: none;
+  background-color: white;
+  z-index: 1;
+}
+
+.toolbar view {
+  box-sizing: border-box;
+  padding: 0 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
 }

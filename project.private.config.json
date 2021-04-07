@@ -27,6 +27,18 @@
         {
           "name": "pages/recording/recording",
           "pathName": "pages/recording/recording",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/essay/essay",
+          "pathName": "pages/essay/essay",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/details/details",
+          "pathName": "pages/details/details",
           "scene": null
         }
       ]

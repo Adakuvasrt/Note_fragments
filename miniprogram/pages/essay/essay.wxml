@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="head">
+    <l-avatar text=" {{essay.nickName}}" placement="right" src="{{essay.avatarUrl}}" />
+  </view>
+  <view class="body">
+    <towxml nodes="{{article}}" />
+  </view>
+  <view class="footer">
+    点赞/评论
+    <l-loadmore show="{{true}}" type="end" loading-text="笔记碎片" line="true">
+    </l-loadmore>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
+    "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index"
+  }
+}

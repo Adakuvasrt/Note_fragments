@@ -1,0 +1,5 @@
+<l-capsule-bar capsule-left-icon-width="38" capsule-left-icon-height="38" capsule-right-icon-width="38"
+  capsule-right-icon-height="38" capsule-left-icon-path="https://cdn.talelin.com/20201226182234.png"
+  capsule-right-icon-path="https://cdn.talelin.com/20201226182244.png" title="Note Fragment" disable-home
+  bind:linlefttap="linlefttap" bind:linrighttap="linrighttap">
+</l-capsule-bar>
