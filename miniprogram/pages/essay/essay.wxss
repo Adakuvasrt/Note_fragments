@@ -4,14 +4,17 @@
 }
 
 .head {
-  margin-top: 26rpx;
-  margin-left: 26rpx;
+
   text-align: left;
-  border-bottom: 1px dashed red;
+
+  margin: 34rpx;
 }
 
 .body {
-  border-bottom: 1px dashed red;
+  border-top: 1px solid #a5c2c2;
+  border-bottom: 1px solid #a5c2c2;
 }
 
-.footer {}
+.footer {
+  margin: 34rpx;
+}
