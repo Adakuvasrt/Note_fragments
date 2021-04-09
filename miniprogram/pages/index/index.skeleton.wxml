@@ -1,0 +1,225 @@
+<!--
+此文件为开发者工具生成，生成时间: 2021/4/9 下午12:41:19
+使用方法：
+在 D:\Project\WXprogram\NoteFragments\miniprogram\pages\index\index.wxml 引入模板
+
+```
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 D:\Project\WXprogram\NoteFragments\miniprogram\pages\index\index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="container">
+      <view is="miniprogram_npm/lin-ui/sticky/index">
+        <view class="sticky-index--l-sticky ">
+          <view is="miniprogram_npm/lin-ui/sticky-item/index">
+            <view class="sticky-item-index--l-sticky-item ">
+              <view class="sticky-item-index--l-sticky-item-header-wrapper " style="height:auto"></view>
+              <view class="sticky-item-index--l-sticky-item-header sticky-item-index--l-sticky-item-header " style=" top:5px">
+                <view>
+                  <view is="miniprogram_npm/lin-ui/segment/index" id="tab" style="height:40px">
+                    <view class="segment-index--l-tabs  segment-index--l-placement-top segment-index--l-tabs-horizontal" style="true">
+                      <scroll-view scroll-with-animation="true" class="segment-index--l-tabsscroll  segment-index--l-tabs-header-line  " scroll-left="0" scroll-top="0" scroll-x="true" style="border: none;">
+                        <view class="segment-index--l-tabs-header segment-index--l-tabs-equal-header">
+                          <view class="segment-index--l-tabs-item segment-index--l-tabs-equal-width segment-index--l-tabs-active segment-index--l-tab-image-placement-top sk-transparent" data-index="0" data-key="0" style="color:;;">
+                            学习笔记
+                            <view class="segment-index--l-tab-line  " style="background:"></view>
+                          </view>
+                          <view class="segment-index--l-tabs-item segment-index--l-tabs-equal-width segment-index--l-tabs-inactive segment-index--l-tab-image-placement-top sk-transparent" data-index="1" data-key="1" style="color:;;">
+                            随思随想
+                            <view class="segment-index--l-tab-line" style="background:"></view>
+                          </view>
+                          <view class="segment-index--l-tabs-item segment-index--l-tabs-equal-width segment-index--l-tabs-inactive segment-index--l-tab-image-placement-top sk-transparent" data-index="2" data-key="2" style="color:;;">
+                            xxxxxx
+                            <view class="segment-index--l-tab-line" style="background:"></view>
+                          </view>
+                        </view>
+                      </scroll-view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="sticky-item-index--l-sticky-item-body "></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="body" style="height:100%">
+        <swiper current="0" style="height:100%" autoplay="false">
+          <swiper-item style="position: absolute; width: 100%; height: 100%; transform: translate(0%, 0px) translateZ(0px);">
+            <scroll-view enable-back-to-top="true" scroll-anchoring="true" class="body-scroll" refresher-enabled="true" refresher-triggered="true" scroll-y="true">
+              <view class="cards">
+                <view class="card" data-num="0" id="tom">
+                  <view is="miniprogram_npm/lin-ui/card/index">
+                    <view class="card card-index--card-container card-index--card-container-avatar card-index--card-container-avatar-left card-index--card-container-unfull">
+                      <view class="card-index--card-avatar-top">
+                        <view class="card-index--card-avatar-left">
+                          <image lazy-load="true" class="card-index--card-img-avatar sk-image" mode="scaleToFill"></image>
+                          <view class="card-index--card-avatar">
+                            <text class="card-index--card-title card-index--card-title-avatar sk-transparent sk-text-18-7500-926 sk-text">ηζÂÇ</text>
+                            <text class="card-index--describe sk-transparent sk-text-18-7500-63 sk-text">2021/04/09 11:32:01</text>
+                          </view>
+                        </view>
+                        <view is="miniprogram_npm/lin-ui/tag/index">
+                          <view style="display:flex">
+                            <view class="tag-index--l-tag tag-index--l-tag-touch tag-index--l-tag-large  tag-index--l-tag-large-circle" style="background-color:#f3f3f3;color:#3963BC">
+                              <view class="tag-index--content sk-transparent sk-text-18-7500-782 sk-text" style="true">
+                                + 关注
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="avter-content">
+                        <view is="towxml/towxml" data-num="0">
+                          <view class="h2w h2w-light">
+                            <view class="h2w__main">
+                              <view is="towxml/decode" class="sk-transparent">
+                                <view class="h2w__p decode--h2w__p" data-data="[object Object]" style="true">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-982 sk-text">中午好啊，代码人！</view>
+                                </view>
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="avter-share-container">
+                        <view class="like-container">
+                          <view is="miniprogram_npm/lin-ui/icon/index">
+                            <view class="l-icon icon-index--l-icon l-icon-like icon-index--l-icon-like sk-pseudo sk-pseudo-circle" style="font-size:15px;color:#F4516C;"></view>
+                          </view>
+                          <view class="number sk-transparent sk-text-18-7500-677 sk-text">0 喜欢</view>
+                        </view>
+                        <view class="like-container">
+                          <view is="miniprogram_npm/lin-ui/icon/index">
+                            <view class="l-icon icon-index--l-icon l-icon-comment icon-index--l-icon-comment sk-pseudo sk-pseudo-circle" style="font-size:15px;color:#666;"></view>
+                          </view>
+                          <view class="number sk-transparent sk-text-18-7500-196 sk-text">0 评论</view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view class="card" data-num="1" id="tom">
+                  <view is="miniprogram_npm/lin-ui/card/index">
+                    <view class="card card-index--card-container card-index--card-container-avatar card-index--card-container-avatar-left card-index--card-container-unfull">
+                      <view class="card-index--card-avatar-top">
+                        <view class="card-index--card-avatar-left">
+                          <image lazy-load="true" class="card-index--card-img-avatar sk-image" mode="scaleToFill"></image>
+                          <view class="card-index--card-avatar">
+                            <text class="card-index--card-title card-index--card-title-avatar sk-transparent sk-text-18-7500-320 sk-text">ηζÂÇ</text>
+                            <text class="card-index--describe sk-transparent sk-text-18-7500-413 sk-text">2021/04/09 10:23:23</text>
+                          </view>
+                        </view>
+                        <view is="miniprogram_npm/lin-ui/tag/index">
+                          <view style="display:flex">
+                            <view class="tag-index--l-tag tag-index--l-tag-touch tag-index--l-tag-large  tag-index--l-tag-large-circle" style="background-color:#f3f3f3;color:#3963BC">
+                              <view class="tag-index--content sk-transparent sk-text-18-7500-270 sk-text" style="true">
+                                + 关注
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="avter-content">
+                        <view is="towxml/towxml" data-num="1">
+                          <view class="h2w h2w-light">
+                            <view class="h2w__main">
+                              <view is="towxml/decode" class="sk-transparent">
+                                <view class="h2w__p decode--h2w__p" data-data="[object Object]" style="true">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-63 sk-text">哦，又是写bug的一天。多美好啊！</view>
+                                </view>
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="avter-share-container">
+                        <view class="like-container">
+                          <view is="miniprogram_npm/lin-ui/icon/index">
+                            <view class="l-icon icon-index--l-icon l-icon-like icon-index--l-icon-like sk-pseudo sk-pseudo-circle" style="font-size:15px;color:#F4516C;"></view>
+                          </view>
+                          <view class="number sk-transparent sk-text-18-7500-785 sk-text">0 喜欢</view>
+                        </view>
+                        <view class="like-container">
+                          <view is="miniprogram_npm/lin-ui/icon/index">
+                            <view class="l-icon icon-index--l-icon l-icon-comment icon-index--l-icon-comment sk-pseudo sk-pseudo-circle" style="font-size:15px;color:#666;"></view>
+                          </view>
+                          <view class="number sk-transparent sk-text-18-7500-409 sk-text">1 评论</view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view class="card" data-num="2" id="tom">
+                  <view is="miniprogram_npm/lin-ui/card/index">
+                    <view class="card card-index--card-container card-index--card-container-avatar card-index--card-container-avatar-left card-index--card-container-unfull">
+                      <view class="card-index--card-avatar-top">
+                        <view class="card-index--card-avatar-left">
+                          <image lazy-load="true" class="card-index--card-img-avatar sk-image" mode="scaleToFill"></image>
+                          <view class="card-index--card-avatar">
+                            <text class="card-index--card-title card-index--card-title-avatar sk-transparent sk-text-18-7500-304 sk-text">不二</text>
+                            <text class="card-index--describe sk-transparent sk-text-18-7500-735 sk-text">2021/04/09 10:06:21</text>
+                          </view>
+                        </view>
+                        <view is="miniprogram_npm/lin-ui/tag/index">
+                          <view style="display:flex">
+                            <view class="tag-index--l-tag tag-index--l-tag-touch tag-index--l-tag-large  tag-index--l-tag-large-circle" style="background-color:#f3f3f3;color:#3963BC">
+                              <view class="tag-index--content sk-transparent sk-text-18-7500-888 sk-text" style="true">
+                                + 关注
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="avter-content">
+                        <view is="towxml/towxml" data-num="2">
+                          <view class="h2w h2w-light">
+                            <view class="h2w__main">
+                              <view is="towxml/decode" class="sk-transparent">
+                                <view class="h2w__p decode--h2w__p" data-data="[object Object]" style="true">
+                                  <view is="towxml/decode" class="sk-transparent sk-opacity">2</view>
+                                </view>
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="avter-share-container">
+                        <view class="like-container">
+                          <view is="miniprogram_npm/lin-ui/icon/index">
+                            <view class="l-icon icon-index--l-icon l-icon-like icon-index--l-icon-like sk-pseudo sk-pseudo-circle" style="font-size:15px;color:#F4516C;"></view>
+                          </view>
+                          <view class="number sk-transparent sk-text-18-7500-537 sk-text">0 喜欢</view>
+                        </view>
+                        <view class="like-container">
+                          <view is="miniprogram_npm/lin-ui/icon/index">
+                            <view class="l-icon icon-index--l-icon l-icon-comment icon-index--l-icon-comment sk-pseudo sk-pseudo-circle" style="font-size:15px;color:#666;"></view>
+                          </view>
+                          <view class="number sk-transparent sk-text-18-7500-684 sk-text">1 评论</view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view class="card" data-num="3" id="tom">
+                  <view is="miniprogram_npm/lin-ui/card/index">
+                    <view class="card card-index--card-container card-index--card-container-avatar card-index--card-container-avatar-left card-index--card-container-unfull"></view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+  </view>
+</template>

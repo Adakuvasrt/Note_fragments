@@ -3,8 +3,15 @@ const app = getApp();
 Page({
 
   data: {
+    loading: true,
+    essays1: [],
+    essays2: [],
+    essays3: [],
     essays: [],
     articles: [],
+    articles1: [],
+    articles2: [],
+    articles3: [],
     scrollTop: undefined,
     activekey: "0",
     currentIndex: "0",
@@ -40,7 +47,7 @@ Page({
       title: '加载中',
     })
     this.setData({
-      haveloadall: false
+      haveloadall: false,
     })
     wx.cloud.callFunction({
       name: "getArticle",
@@ -55,26 +62,33 @@ Page({
       let arr = this.data.essays;
       let s;
       let temp = [];
-      let essaystimed = [];
       arr.forEach((item, index) => {
-        item.timestamp = timeformat(item.timestamp)
-        essaystimed.push(item)
         s = app.towxml(item.content, 'markdown');
         temp.push(s)
       })
       this.setData({
         triggered: false,
         articles: temp,
-        essays: essaystimed
+        loading: false
       })
       wx.hideLoading({
         success: (res) => {
           console.log("加载成功")
         },
+      });
+      wx.showToast({
+        title: '刷新成功'
       })
-
     }).catch(res => {
-      console.log(res);
+      wx.hideLoading({
+        success: (res) => {
+          console.log("出现异常")
+        },
+      });
+      wx.showToast({
+        title: '出现异常',
+        icon: error
+      })
     })
   },
 
@@ -175,19 +189,18 @@ Page({
       let arr = this.data.essays;
       let s;
       let temp = [];
-      let essaystimed = [];
       arr.forEach((item, index) => {
-        item.timestamp = timeformat(item.timestamp)
-        essaystimed.push(item)
         s = app.towxml(item.content, 'markdown');
         temp.push(s)
       })
       this.setData({
         articles: temp,
-        essays: essaystimed
+        loading: false
       })
+      wx.hideNavigationBarLoading();
     }).catch(res => {
       console.log(res);
+      wx.hideNavigationBarLoading();
     })
 
     this.setData({
