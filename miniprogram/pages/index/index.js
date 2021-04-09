@@ -1,4 +1,4 @@
-import deviceUtil from "../../miniprogram_npm/lin-ui/utils/device-util"
+import timeformat from '../../utils/timeformat';
 const app = getApp();
 Page({
 
@@ -12,7 +12,7 @@ Page({
     triggered: true, //自定义scrol-lview下拉刷新
     inputShowed: false, //searchbar
     inputVal: "", //searchbar
-    haveloadall:false //是否全部加载完成
+    haveloadall: false //是否全部加载完成
   },
   changeTabs(activeKey) {
     this.setData({
@@ -40,12 +40,12 @@ Page({
       title: '加载中',
     })
     this.setData({
-      haveloadall:false
+      haveloadall: false
     })
     wx.cloud.callFunction({
       name: "getArticle",
       data: {
-        count: 6,
+        count: 9,
         skipNum: 0
       },
     }).then(res => {
@@ -55,22 +55,17 @@ Page({
       let arr = this.data.essays;
       let s;
       let temp = [];
+      let essaystimed = [];
       arr.forEach((item, index) => {
-        s = app.towxml(item.content, 'markdown', {
-          events: { // 为元素绑定的事件方法
-            tap: (e) => {
-              // console.log(e);
-              // this.clickCard(e);
-            }
-          }
-        });
+        item.timestamp = timeformat(item.timestamp)
+        essaystimed.push(item)
+        s = app.towxml(item.content, 'markdown');
         temp.push(s)
-        this.setData({
-          articles: temp
-        })
       })
       this.setData({
-        triggered: false
+        triggered: false,
+        articles: temp,
+        essays: essaystimed
       })
       wx.hideLoading({
         success: (res) => {
@@ -89,7 +84,7 @@ Page({
    * */
   scrolltolower() {
     console.log("触底了");
-    if(this.data.haveloadall===true){
+    if (this.data.haveloadall === true) {
       wx.hideLoading({
         success: (res) => {
           console.log("加载完成")
@@ -97,31 +92,23 @@ Page({
       })
       return;
     }
-    wx.showLoading({
-      title: '加载中',
-    })
     wx.cloud.callFunction({
       name: "getArticle",
       data: {
-        count: 6,
+        count: 9,
         skipNum: this.data.articles.length
       },
     }).then(res => {
-      if(res.result.data.length===0) {
+      if (res.result.data.length === 0) {
         this.setData({
-          haveloadall:true
-        })
-        wx.hideLoading({
-          success: (res) => {
-            console.log("加载完成")
-          },
+          haveloadall: true
         })
         return;
       }
       let arr = this.data.essays;
       arr = arr.concat(res.result.data)
       this.setData({
-        essays:arr
+        essays: arr
       })
       let s;
       let temp = [];
@@ -135,9 +122,9 @@ Page({
           }
         });
         temp.push(s)
-        this.setData({
-          articles: temp
-        })
+      })
+      this.setData({
+        articles: temp
       })
       wx.hideLoading({
         success: (res) => {
@@ -145,7 +132,7 @@ Page({
         },
       })
     })
-    
+
   },
 
 
@@ -178,7 +165,7 @@ Page({
     wx.cloud.callFunction({
       name: "getArticle",
       data: {
-        count: 6,
+        count: 9,
         skipNum: 0
       },
     }).then(res => {
@@ -188,21 +175,17 @@ Page({
       let arr = this.data.essays;
       let s;
       let temp = [];
+      let essaystimed = [];
       arr.forEach((item, index) => {
-        s = app.towxml(item.content, 'markdown', {
-          events: { // 为元素绑定的事件方法
-            tap: (e) => {
-              // console.log(e);
-              // this.clickCard(e);
-            }
-          }
-        });
+        item.timestamp = timeformat(item.timestamp)
+        essaystimed.push(item)
+        s = app.towxml(item.content, 'markdown');
         temp.push(s)
-        this.setData({
-          articles: temp
-        })
       })
-
+      this.setData({
+        articles: temp,
+        essays: essaystimed
+      })
     }).catch(res => {
       console.log(res);
     })
@@ -224,7 +207,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**

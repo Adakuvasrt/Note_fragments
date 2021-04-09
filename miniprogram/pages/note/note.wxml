@@ -1,7 +1,7 @@
 <view class="container">
   <view class="main">
     <view class="title">发表想法</view>
-    <textarea model:value="{{val}}" placeholder="开始书写吧" maxlength="180" show-confirm-bar="false"
+    <textarea model:value="{{val}}" placeholder="开始书写吧" maxlength="800" show-confirm-bar="false"
       disable-default-padding="true" confirm-hold="true" class="write"></textarea>
     <button bind:tap="toDetail">预览</button>
   </view>

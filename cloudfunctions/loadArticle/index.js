@@ -12,6 +12,7 @@ exports.main = async (event, context) => {
     nickName,
     content
   } = event;
+  var timestamp = new Date().getTime();
   db.collection('articles').add({
     data: {
       openId: openId,
@@ -20,7 +21,8 @@ exports.main = async (event, context) => {
       content: content,
       likenum: 0,
       comment: 0,
+      timestamp: timestamp,
     }
   });
   console.log("1");
-}; 
+};

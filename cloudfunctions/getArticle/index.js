@@ -10,6 +10,6 @@ exports.main = async (event, context) => {
     count,
     skipNum
   } = event;
-  let res = db.collection('articles').limit(count).skip(skipNum).get()
+  let res = db.collection('articles').orderBy('timestamp', 'desc').limit(count).skip(skipNum).get()
   return res;
 }

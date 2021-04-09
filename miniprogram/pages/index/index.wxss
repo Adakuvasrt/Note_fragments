@@ -33,7 +33,7 @@
 .like-container {
   display: flex;
   flex-direction: row;
-  margin-left: 40rpx;
+  margin-left: 7rpx;
   align-items: center
 }
 

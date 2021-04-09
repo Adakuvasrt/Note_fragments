@@ -23,23 +23,23 @@
   <view class="body" style="height:100%">
     <swiper bindchange="scollTab" model:current="{{currentIndex}}" style="height:100%">
       <swiper-item>
-        <scroll-view refresher-enabled="true" bindrefresherrefresh="refresh" refresher-triggered="{{triggered}}" bindscrolltolower="scrolltolower"
-          scroll-y="true" enable-back-to-top scroll-anchoring class="body-scroll">
+        <scroll-view refresher-enabled="true" bindrefresherrefresh="refresh" refresher-triggered="{{triggered}}"
+          bindscrolltolower="scrolltolower" scroll-y="true" enable-back-to-top scroll-anchoring class="body-scroll">
           <view class="cards">
-            <view id="tom" class="card" wx:for="{{essays}}" wx:key="index"  data-num="{{index}}">
+            <view id="tom" class="card" wx:for="{{essays}}" wx:key="index" data-num="{{index}}">
               <l-card type="avatar" l-class="card" image="{{essays[index].avatarUrl}}"
-                title="{{essays[index].nickName}}" describe="几分钟前 ">
+                title="{{essays[index].nickName}}" describe="{{essays[index].timestamp}}">
                 <view class="avter-content">
                   <towxml data-num="{{index}}" nodes="{{articles[index]}}" bindtap="clickCard" />
                 </view>
                 <view class="avter-share-container">
                   <view class="like-container">
                     <l-icon name="like" color="#F4516C" size="28" />
-                    <view class="number">160 喜欢</view>
+                    <view class="number">{{item.likenum}} 喜欢</view>
                   </view>
                   <view class="like-container">
                     <l-icon name="comment" color="#666" size="28" />
-                    <view class="number">10 精益</view>
+                    <view class="number">{{item.comment.length}} 评论</view>
                   </view>
                 </view>
                 <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
@@ -47,8 +47,13 @@
                 </l-tag>
               </l-card>
             </view>
+            <l-loadmore show="{{!haveloadall}}" type="loading" loading-text="努力加载中~" line="{{true}}">
+            </l-loadmore>
+            <l-loadmore show="{{haveloadall}}" type="end" line="{{true}}">
+            </l-loadmore>
           </view>
         </scroll-view>
+
       </swiper-item>
 
       <swiper-item>
@@ -108,4 +113,7 @@
       </swiper-item>
     </swiper>
   </view>
+
+
+
 </view>
