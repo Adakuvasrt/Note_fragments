@@ -1,4 +1,5 @@
 const app = getApp();
+import timeformat from '../../utils/timeformat';
 Page({
 
   /**
@@ -7,12 +8,12 @@ Page({
   data: {
     essay: null,
     article: null,
+    newCommentTxt: "" //用户提交的评论
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("options.essay: " + options.essay);
     let res = JSON.parse(decodeURIComponent(options.essay))
     this.setData({
       "essay": res
@@ -23,6 +24,30 @@ Page({
     })
   },
 
+  publishComment() {
+    let timestamp = new Date().getTime();
+    timestamp = timeformat(timestamp)
+    let newtemp = {
+      nickName: app.globalData.nickName,
+      avatarUrl: app.globalData.avatarUrl,
+      txt: this.data.newCommentTxt,
+      timestamp: timestamp
+    }
+    const db = wx.cloud.database();
+    const _ = db.command
+    db.collection('articles').doc(this.data.essay._id).update({
+      data: {
+        comment: _.push(newtemp)
+      },
+      success: console.log,
+      fail: console.error
+    });
+    let temp = this.data.essay;
+    temp.comment.push(newtemp);
+    this.setData({
+      essay: temp
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

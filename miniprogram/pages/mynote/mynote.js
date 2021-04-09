@@ -1,19 +1,13 @@
-// pages/about/about.js
-const app = getApp();
+// pages/mynote/mynote.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    vipLevel: "普通会员"
+
   },
 
-  toMynote() {
-    wx.navigateTo({
-      url: '/pages/mynote/mynote',
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -52,9 +46,9 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  // onPullDownRefresh: function () {
+  onPullDownRefresh: function () {
 
-  // },
+  },
 
   /**
    * 页面上拉触底事件的处理函数

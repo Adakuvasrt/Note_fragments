@@ -8,6 +8,17 @@
     <towxml nodes="{{article}}" />
   </view>
   <view class="footer">
-    点赞/评论
+    <view class="newComment">
+      <view>评论</view>
+      <input class="newcommenttxt" type="text" placeholder="发表你的评论~" model:value="{{newCommentTxt}}" />
+      <l-button bindtap="publishComment">提交</l-button>
+    </view>
+    <view class="comment">
+      <view class="commentItem" wx:for="{{essay.comment}}" wx:key="_id">
+        <l-avatar class="commentHead" shape="square" size="70" src="{{item.avatarUrl}}" /> {{item.nickName}} --
+        {{item.timestamp}}
+        <view class="commenttext">{{item.txt}}</view>
+      </view>
+    </view>
   </view>
 </view>

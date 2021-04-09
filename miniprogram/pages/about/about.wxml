@@ -7,8 +7,8 @@
   </view>
   <view class="dolist">
     <l-list title="积分" icon="notification" class="item" tag-content="428" tagShape="circle" tag-position="right" />
-    <l-list title="消息" icon="soud" badge-count="15" badge-position="right" class="item" />
-    <l-list title="笔记" icon="edit" class="item" />
+    <l-list title="消息" bindtap="toMynote" icon="soud" badge-count="15" badge-position="right" class="item" />
+    <l-list title="笔记" bindtap="toMynote" icon="edit" class="item" />
     <l-list title="喜欢" icon="like" class="item" />
     <l-list title="收藏" icon="favor" class="item">
 

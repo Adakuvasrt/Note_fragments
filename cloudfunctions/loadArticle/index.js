@@ -10,19 +10,23 @@ exports.main = async (event, context) => {
   const {
     avatarUrl,
     nickName,
-    content
+    content,
+    tag
   } = event;
   var timestamp = new Date().getTime();
+  var date = new Date(timestamp + 8 * 3600 * 1000);
+  let timestampf = date.toJSON().substr(0, 19).replace('T', ' ').replace(/-/g, '/');
   db.collection('articles').add({
     data: {
       openId: openId,
       avatarUrl: avatarUrl,
       nickName: nickName,
+      tag: tag,
       content: content,
       likenum: 0,
-      comment: 0,
-      timestamp: timestamp,
+      comment: [],
+      timestamp: timestampf,
     }
   });
-  console.log("1");
+  return 1;
 };

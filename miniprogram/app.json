@@ -5,7 +5,8 @@
     "pages/recording/recording",
     "pages/about/about",
     "pages/essay/essay",
-    "pages/details/details"
+    "pages/details/details",
+    "pages/mynote/mynote"
   ],
   "window": {
     "backgroundColor": "#ffffff",

@@ -1,4 +1,5 @@
 {
+  
   "usingComponents": {
     "l-list": "/miniprogram_npm/lin-ui/list/index",
     "l-avatar": "/miniprogram_npm/lin-ui/avatar/index"

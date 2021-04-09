@@ -7,7 +7,8 @@ Page({
    */
   data: {
     article: "",
-    val: ""
+    val: "",
+    tag: 0,
   },
 
   returnBack() {
@@ -16,24 +17,31 @@ Page({
     })
   },
   publish() {
-    wx.showToast({
-      title: '发表成功',
-    });
+    if (this.data.val === "") {
+      wx.showToast({
+        title: '请先填写内容~',
+        icon: 'error'
+      })
+      return;
+    }
     wx.cloud.callFunction({
       name: "loadArticle",
       data: {
         avatarUrl: app.globalData.avatarUrl,
         nickName: app.globalData.nickName,
-        content: this.data.val
+        content: this.data.val,
+        tag: this.data.tag
       }
     }).then((res) => {
       console.log(res);
+      wx.showToast({
+        title: '发表成功',
+      });
+      wx.reLaunch({
+        url: '/pages/note/note',
+      });
     }).catch(res => {
       console.log(res);
-    });
-
-    wx.reLaunch({
-      url: '/pages/note/note',
     });
   },
 
@@ -44,8 +52,10 @@ Page({
    */
   onLoad: function (options) {
     let res = JSON.parse(decodeURIComponent(options.essay));
+    let tag = JSON.parse(decodeURIComponent(options.tag));
     this.setData({
-        val: res
+        val: res,
+        tag: tag
       }),
       res = app.towxml(res, 'markdown');
     this.setData({

@@ -1,8 +1,15 @@
 <view class="container">
   <view class="main">
     <view class="title">发表想法</view>
-    <textarea model:value="{{val}}" placeholder="开始书写吧" maxlength="800" show-confirm-bar="false"
+    <textarea model:value="{{content}}" placeholder="开始书写吧" maxlength="4820" show-confirm-bar="false"
       disable-default-padding="true" confirm-hold="true" class="write"></textarea>
     <button bind:tap="toDetail">预览</button>
+    <view class="selecttag">
+      <view>选择板块</view>
+      <l-tag plain="{{true}}" select="{{select1}}" l-select-class="select" bindtap="onSelect1" shape="circle">学习笔记
+      </l-tag>
+      <l-tag plain="{{true}}" select="{{select2}}" shape="circle" bindtap="onSelect2">随思随想</l-tag>
+      <l-tag plain="{{true}}" select="{{select3}}" shape="circle" bindtap="onSelect3">xxxxxx</l-tag>
+    </view>
   </view>
 </view>

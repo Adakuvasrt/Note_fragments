@@ -16,5 +16,22 @@
 }
 
 .footer {
+  margin: 22rpx;
+}
+
+.newcommenttxt {
+  margin: 24rpx;
+}
+
+.commentItem {
+  border-top: 1px solid rgba(57, 69, 69, 0.8);
   margin: 34rpx;
+}
+
+.commenttext {
+  margin: 34rpx;
+}
+
+.commentHead {
+  margin-top: 23rpx;
 }
