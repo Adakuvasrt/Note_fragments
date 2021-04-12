@@ -3,7 +3,16 @@ App({
   onLaunch: function () {
     this.globalData = {
       _openId: "",
-      isLogin: false
+      isLogin: false,
+
+      loading: true,
+      essays1: [],
+      essays2: [],
+      essays3: [],
+      essays0: [],
+      haveloadall1: false, //是否全部加载完成
+      haveloadall2: false,
+      haveloadall3: false,
     }
 
     if (!wx.cloud) {

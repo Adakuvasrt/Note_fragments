@@ -6,10 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    article: "",
-    val: "",
-    tag: 0,
-    overt: true,
+    article: null,
+    val: null,
+    tag: null,
+    overt: null,
   },
 
   returnBack() {
@@ -25,17 +25,51 @@ Page({
       })
       return;
     }
+    wx.showLoading({
+      title: '发表中',
+    })
+    var timestamp = new Date().getTime();
+    var date = new Date(timestamp + 8 * 3600 * 1000);
+    let timestampf = date.toJSON().substr(0, 19).replace('T', ' ').replace(/-/g, '/');
+    let newArticle = {
+      openId: app.globalData._openId,
+      avatarUrl: app.globalData.avatarUrl,
+      nickName: app.globalData.nickName,
+      content: this.data.val,
+      article: this.data.article,
+      tag: this.data.tag,
+      overt: this.data.overt,
+      likenum: 0,
+      comment: [],
+      timestamp: timestampf,
+    }
     wx.cloud.callFunction({
       name: "loadArticle",
       data: {
         avatarUrl: app.globalData.avatarUrl,
         nickName: app.globalData.nickName,
         content: this.data.val,
+        article: this.data.article,
         tag: this.data.tag,
-        overt: this.data.overt
+        overt: this.data.overt,
       }
     }).then((res) => {
-      console.log(res);
+      if (this.data.overt === true) {
+        if (this.data.tag === 1) {
+          app.globalData.essays1.unshift(newArticle);
+        }
+        if (this.data.tag === 2) {
+          app.globalData.essays2.unshift(newArticle);
+        }
+        if (this.data.tag === 3) {
+          app.globalData.essays3.unshift(newArticle);
+        }
+      }
+      wx.hideLoading({
+        success: (res) => {
+          console.log("发表成功")
+        },
+      })
       wx.showToast({
         title: '发表成功',
       });

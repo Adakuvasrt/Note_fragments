@@ -6,22 +6,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    essay: null,
-    article: null,
+    tag: null,
+    num: null,
+    essay: {},
     newCommentTxt: null //用户提交的评论
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let res = JSON.parse(decodeURIComponent(options.essay))
-    this.setData({
-      "essay": res
-    });
-    let s = app.towxml(this.data.essay.content, 'markdown');
-    this.setData({
-      "article": s
-    })
+    let num = JSON.parse(decodeURIComponent(options.num));
+    let tag = JSON.parse(decodeURIComponent(options.tag));
+    if (tag === "1") {
+      this.setData({
+        essay: app.globalData.essays1[num],
+        num: num,
+        tag: tag,
+      })
+    }
+    if (tag === "2") {
+      this.setData({
+        essay: app.globalData.essays2[num],
+        num: num,
+        tag: tag,
+      })
+    }
+    if (tag === "3") {
+      this.setData({
+        essay: app.globalData.essays3[num],
+        num: num,
+        tag: tag,
+      })
+    }
+    if (tag === "0") {
+      this.setData({
+        essay: app.globalData.essays0[num],
+        num: num,
+        tag: tag,
+      })
+    }
   },
 
   publishComment() {
@@ -49,12 +72,39 @@ Page({
       success: console.log,
       fail: console.error
     });
-    let temp = this.data.essay;
-    temp.comment.unshift(newtemp);
-    this.setData({
-      essay: temp,
-      newCommentTxt: ""
-    })
+    if (this.data.tag === "1") {
+      let temp = this.data.essay
+      temp.comment.unshift(newtemp);
+      app.globalData.essays1[this.data.num] = temp
+      this.setData({
+        essay: temp,
+        newCommentTxt: ""
+      })
+    }
+    if (this.data.tag === "2") {
+      let temp = app.globalData.essays2[this.data.num]
+      temp.comment.unshift(newtemp);
+      this.setData({
+        essay: app.globalData.essays2[this.data.num],
+        newCommentTxt: ""
+      })
+    }
+    if (this.data.tag === "3") {
+      let temp = app.globalData.essays3[this.data.num]
+      temp.comment.unshift(newtemp)
+      this.setData({
+        essay: app.globalData.essays3[this.data.num],
+        newCommentTxt: ""
+      })
+    }
+    if (this.data.tag === "0") {
+      app.globalData.essays0[this.data.num].comment.unshift(newtemp)
+      this.setData({
+        essay: app.globalData.essays0[this.data.num],
+        newCommentTxt: ""
+      })
+    }
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

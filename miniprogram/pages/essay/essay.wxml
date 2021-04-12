@@ -5,7 +5,7 @@
   </view>
 
   <view class="body">
-    <towxml nodes="{{article}}" />
+    <towxml nodes="{{essay.article}}" />
   </view>
   <view class="footer">
     <view class="newComment">

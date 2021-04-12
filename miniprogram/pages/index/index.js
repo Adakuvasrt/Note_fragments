@@ -1,17 +1,13 @@
-import timeformat from '../../utils/timeformat';
 const app = getApp();
 Page({
-
   data: {
     loading: true,
     essays1: [],
     essays2: [],
     essays3: [],
-    essays: [],
-    articles: [],
-    articles1: [],
-    articles2: [],
-    articles3: [],
+    haveloadall1: false, //是否全部加载完成
+    haveloadall2: false,
+    haveloadall3: false,
     scrollTop: undefined,
     activekey: "0",
     currentIndex: "0",
@@ -19,7 +15,10 @@ Page({
     triggered: true, //自定义scrol-lview下拉刷新
     inputShowed: false, //searchbar
     inputVal: "", //searchbar
-    haveloadall: false //是否全部加载完成
+    tag1: 1,
+    tag2: 2,
+    tag3: 3,
+
   },
   changeTabs(activeKey) {
     this.setData({
@@ -32,124 +31,142 @@ Page({
       "activekey": current
     });
   },
-
   clickCard(e) {
-    let c = JSON.stringify(this.data.essays[e.currentTarget.dataset.num])
+    let num = JSON.stringify(e.currentTarget.dataset.num);
+    let tag = JSON.stringify(e.currentTarget.dataset.pagenum);
     wx.navigateTo({
-      url: '/pages/essay/essay?essay=' + encodeURIComponent(c),
+      url: '/pages/essay/essay?num=' + encodeURIComponent(num) + '&tag=' + encodeURIComponent(tag)
     })
   },
-  /*
-   *  自定义下拉刷新事件 
-   */
-  refresh() {
+  //自定义下拉刷新事件
+  refresh1() {
+    console.log("下拉刷新1");
     wx.showLoading({
       title: '加载中',
-    })
-    this.setData({
-      haveloadall: false,
-    })
-    wx.cloud.callFunction({
-      name: "getArticle",
-      data: {
-        count: 9,
-        skipNum: 0
-      },
-    }).then(res => {
+    });
+    this.getAllArticles(9, 0, 1, true).then(res => {
+      app.globalData.essays1 = res.result.data;
       this.setData({
-        "essays": res.result.data,
+        essays1: res.result.data,
       });
-      let arr = this.data.essays;
-      let s;
-      let temp = [];
-      arr.forEach((item, index) => {
-        s = app.towxml(item.content, 'markdown');
-        temp.push(s)
-      })
-      this.setData({
-        triggered: false,
-        articles: temp,
-        loading: false
-      })
       wx.hideLoading({
         success: (res) => {
-          console.log("加载成功")
+          console.log("加载成功");
         },
-      });
-      wx.showToast({
-        title: '刷新成功'
       })
-    }).catch(res => {
-      wx.hideLoading({
-        success: (res) => {
-          console.log("出现异常")
-        },
-      });
-      wx.showToast({
-        title: '出现异常',
-        icon: error
+      this.setData({
+        triggered: false
       })
-    })
+    });
   },
-
-  /*
-   *
-   *自定义下拉触底事件
-   * */
-  scrolltolower() {
-    console.log("触底了");
-    if (this.data.haveloadall === true) {
+  refresh2() {
+    wx.showLoading({
+      title: '加载中',
+    });
+    this.getAllArticles(9, 0, 2, true).then(res => {
+      app.globalData.essays2 = res.result.data;
+      this.setData({
+        essays2: res.result.data,
+      });
       wx.hideLoading({
         success: (res) => {
-          console.log("加载完成")
+          console.log("加载成功");
         },
       })
+    });
+  },
+  refresh3() {
+    wx.showLoading({
+      title: '加载中',
+    });
+    this.getAllArticles(9, 0, 3, true).then(res => {
+      app.globalData.essays3 = res.result.data;
+      this.setData({
+        essays3: res.result.data,
+      });
+      wx.hideLoading({
+        success: (res) => {
+          console.log("加载成功");
+        },
+      })
+    });
+  },
+  /*
+   *自定义下拉触底事件
+   */
+  scrolltolower1() {
+    console.log("触底了");
+    if (this.data.haveloadall1 === true) {
+      console.log("已经加载全部");
       return;
     }
-    wx.cloud.callFunction({
-      name: "getArticle",
-      data: {
-        count: 9,
-        skipNum: this.data.articles.length
-      },
-    }).then(res => {
+    this.getAllArticles(9, this.data.essays1.length, 1, true).then(res => {
       if (res.result.data.length === 0) {
         this.setData({
-          haveloadall: true
+          haveloadall1: true,
         })
+        console.log("已经全部加载完成了");
         return;
       }
-      let arr = this.data.essays;
-      arr = arr.concat(res.result.data)
+      app.globalData.essays1 = app.globalData.essays1.concat(res.result.data);
       this.setData({
-        essays: arr
+        essays1: app.globalData.essays1,
       })
-      let s;
-      let temp = [];
-      arr.forEach((item, index) => {
-        s = app.towxml(item.content, 'markdown', {
-          events: { // 为元素绑定的事件方法
-            tap: (e) => {
-              // console.log(e);
-              // this.clickCard(e);
-            }
-          }
-        });
-        temp.push(s)
-      })
+    });
+  },
+  scrolltolower2() {
+    console.log("触底了");
+    if (this.data.haveloadall2 === true) {
+      console.log("已经加载全部");
+      return;
+    }
+    this.getAllArticles(9, this.data.essays2.length, 2, true).then(res => {
+      if (res.result.data.length === 0) {
+        this.setData({
+          haveloadall2: true,
+        })
+        console.log("已经全部加载完成了");
+        return;
+      }
+      app.globalData.essays2 = app.globalData.essays2.concat(res.result.data);
       this.setData({
-        articles: temp
+        essays2: app.globalData.essays2,
       })
-      wx.hideLoading({
-        success: (res) => {
-          console.log("加载完成")
-        },
+    });
+  },
+  scrolltolower3() {
+    console.log("触底了");
+    if (this.data.haveloadall3 === true) {
+      console.log("已经加载全部");
+      return;
+    }
+    this.getAllArticles(9, this.data.essays3.length, 3, true).then(res => {
+      if (res.result.data.length === 0) {
+        this.setData({
+          haveloadall3: true,
+        })
+        console.log("已经全部加载完成了");
+        return;
+      }
+      app.globalData.essays3 = app.globalData.essays3.concat(res.result.data);
+      this.setData({
+        essays3: app.globalData.essays3,
       })
-    })
-
+    });
   },
 
-
+  //获取文章函数
+  getAllArticles(count, skipNum, tag, overt) {
+    return wx.cloud.callFunction({
+      name: "getArticle",
+      data: {
+        count: count,
+        skipNum: skipNum,
+        tag: tag,
+        overt: overt
+      },
+    })
+  },
 
   search: function (value) {
     return new Promise((resolve, reject) => {
@@ -176,37 +193,30 @@ Page({
    */
   onLoad: function (options) {
     wx.showNavigationBarLoading();
-    wx.cloud.callFunction({
-      name: "getArticle",
-      data: {
-        count: 9,
-        skipNum: 0
-      },
-    }).then(res => {
+    this.getAllArticles(9, 0, 1, true).then(res => {
+      app.globalData.essays1 = res.result.data;
       this.setData({
-        "essays": res.result.data,
-      });
-      let arr = this.data.essays;
-      let s;
-      let temp = [];
-      arr.forEach((item, index) => {
-        s = app.towxml(item.content, 'markdown');
-        temp.push(s)
+        essays1: res.result.data,
+        loading: false,
       })
+      wx.hideNavigationBarLoading({
+        success: (res) => {},
+      })
+    });
+    this.getAllArticles(9, 0, 2, true).then(res => {
+      app.globalData.essays2 = res.result.data;
       this.setData({
-        articles: temp,
-        loading: false
+        essays2: res.result.data,
+        loading: false,
       })
-      wx.hideNavigationBarLoading();
-    }).catch(res => {
-      console.log(res);
-      wx.hideNavigationBarLoading();
-    })
-
-    this.setData({
-      search: this.search.bind(this)
-    })
-
+    });
+    this.getAllArticles(9, 0, 3, true).then(res => {
+      app.globalData.essays3 = res.result.data;
+      this.setData({
+        essays3: res.result.data,
+        loading: false,
+      })
+    });
   },
 
   /**
@@ -220,7 +230,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      essays1: app.globalData.essays1,
+      essays2: app.globalData.essays2,
+      essays3: app.globalData.essays3,
+    })
   },
 
   /**

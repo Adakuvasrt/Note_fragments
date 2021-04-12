@@ -13,6 +13,7 @@ exports.main = async (event, context) => {
     content,
     tag,
     overt,
+    article
   } = event;
   var timestamp = new Date().getTime();
   var date = new Date(timestamp + 8 * 3600 * 1000);
@@ -25,6 +26,7 @@ exports.main = async (event, context) => {
       tag: tag,
       overt: overt,
       content: content,
+      article: article,
       likenum: 0,
       comment: [],
       timestamp: timestampf,

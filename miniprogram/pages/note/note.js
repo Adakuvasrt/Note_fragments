@@ -57,11 +57,11 @@ Page({
           app.globalData.nickName = res.userInfo.nickName;
           let tag
           if (this.data.select1) {
-            tag = 0
-          } else if (this.data.select2) {
             tag = 1
-          } else {
+          } else if (this.data.select2) {
             tag = 2
+          } else {
+            tag = 3
           }
           let c = JSON.stringify(this.data.content)
           let t = JSON.stringify(tag)
@@ -81,11 +81,11 @@ Page({
     } else {
       let tag
       if (this.data.select1) {
-        tag = 0
-      } else if (this.data.select2) {
         tag = 1
-      } else {
+      } else if (this.data.select2) {
         tag = 2
+      } else {
+        tag = 3
       }
       let c = JSON.stringify(this.data.content)
       let t = JSON.stringify(tag)
