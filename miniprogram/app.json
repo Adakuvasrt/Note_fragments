@@ -18,8 +18,11 @@
     "navigationStyle": "default"
   },
   "tabBar": {
+    "color": "#bbbbbb",
+    "selectedColor": "#000000",
     "backgroundColor": "#ffffff",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "img/地理 (1).png",

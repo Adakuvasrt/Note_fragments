@@ -8,8 +8,8 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const {
     count,
-    skipNum
+    skipNum,
   } = event;
-  let res = db.collection('articles').orderBy('timestamp', 'desc').limit(count).skip(skipNum).get()
+  let res = db.collection('articles').where({overt:true}).orderBy('timestamp', 'desc').limit(count).skip(skipNum).get()
   return res;
 }

@@ -5,11 +5,17 @@
       disable-default-padding="true" confirm-hold="true" class="write"></textarea>
     <button bind:tap="toDetail">预览</button>
     <view class="selecttag">
-      <view>选择板块</view>
+      <view>选择标签</view>
       <l-tag plain="{{true}}" select="{{select1}}" l-select-class="select" bindtap="onSelect1" shape="circle">学习笔记
       </l-tag>
       <l-tag plain="{{true}}" select="{{select2}}" shape="circle" bindtap="onSelect2">随思随想</l-tag>
       <l-tag plain="{{true}}" select="{{select3}}" shape="circle" bindtap="onSelect3">xxxxxx</l-tag>
     </view>
+    <view class="selecttag">
+      <view>选择是否公开</view>
+      <l-tag plain="{{true}}" select="{{overt}}" shape="circle" bindtap="onSelect4">公开</l-tag>
+      <l-tag plain="{{true}}" select="{{!overt}}" shape="circle" bindtap="onSelect4">私密</l-tag>
+    </view>
+
   </view>
 </view>

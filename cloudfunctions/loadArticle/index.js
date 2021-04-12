@@ -11,7 +11,8 @@ exports.main = async (event, context) => {
     avatarUrl,
     nickName,
     content,
-    tag
+    tag,
+    overt,
   } = event;
   var timestamp = new Date().getTime();
   var date = new Date(timestamp + 8 * 3600 * 1000);
@@ -22,6 +23,7 @@ exports.main = async (event, context) => {
       avatarUrl: avatarUrl,
       nickName: nickName,
       tag: tag,
+      overt: overt,
       content: content,
       likenum: 0,
       comment: [],

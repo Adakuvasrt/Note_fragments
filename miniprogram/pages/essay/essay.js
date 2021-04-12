@@ -8,7 +8,7 @@ Page({
   data: {
     essay: null,
     article: null,
-    newCommentTxt: "" //用户提交的评论
+    newCommentTxt: null //用户提交的评论
   },
   /**
    * 生命周期函数--监听页面加载
@@ -25,6 +25,13 @@ Page({
   },
 
   publishComment() {
+    if (this.data.newCommentTxt === null) {
+      wx.showToast({
+        title: '请先输入内容',
+        icon: 'none'
+      })
+      return;
+    }
     let timestamp = new Date().getTime();
     timestamp = timeformat(timestamp)
     let newtemp = {
@@ -37,15 +44,16 @@ Page({
     const _ = db.command
     db.collection('articles').doc(this.data.essay._id).update({
       data: {
-        comment: _.push(newtemp)
+        comment: _.unshift(newtemp)
       },
       success: console.log,
       fail: console.error
     });
     let temp = this.data.essay;
-    temp.comment.push(newtemp);
+    temp.comment.unshift(newtemp);
     this.setData({
-      essay: temp
+      essay: temp,
+      newCommentTxt: ""
     })
   },
   /**

@@ -9,6 +9,7 @@ Page({
     article: "",
     val: "",
     tag: 0,
+    overt: true,
   },
 
   returnBack() {
@@ -30,7 +31,8 @@ Page({
         avatarUrl: app.globalData.avatarUrl,
         nickName: app.globalData.nickName,
         content: this.data.val,
-        tag: this.data.tag
+        tag: this.data.tag,
+        overt: this.data.overt
       }
     }).then((res) => {
       console.log(res);
@@ -53,9 +55,11 @@ Page({
   onLoad: function (options) {
     let res = JSON.parse(decodeURIComponent(options.essay));
     let tag = JSON.parse(decodeURIComponent(options.tag));
+    let overt = JSON.parse(decodeURIComponent(options.overt));
     this.setData({
         val: res,
-        tag: tag
+        tag: tag,
+        overt: overt
       }),
       res = app.towxml(res, 'markdown');
     this.setData({

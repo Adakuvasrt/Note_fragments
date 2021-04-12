@@ -4,7 +4,8 @@ Page({
     content: "",
     select1: true,
     select2: false,
-    select3: false
+    select3: false,
+    overt: true
   },
   onSelect1() {
     this.setData({
@@ -27,6 +28,11 @@ Page({
       select3: true,
     })
   },
+  onSelect4() {
+    this.setData({
+      overt: !this.data.overt
+    })
+  },
 
   toDetail() {
     if (app.globalData.isLogin !== true) {
@@ -36,6 +42,7 @@ Page({
           wx.setStorage({
             key: "nickName",
             data: res.userInfo.nickName,
+            a
           });
           wx.setStorage({
             key: "avatarUrl",
@@ -58,8 +65,9 @@ Page({
           }
           let c = JSON.stringify(this.data.content)
           let t = JSON.stringify(tag)
+          let p = JSON.stringify(this.data.overt)
           wx.navigateTo({
-            url: '/pages/details/details?essay=' + encodeURIComponent(c) + '&tag=' + encodeURIComponent(t),
+            url: '/pages/details/details?essay=' + encodeURIComponent(c) + '&tag=' + encodeURIComponent(t) + '&overt=' + encodeURIComponent(p),
           });
         },
         fail: (res) => {
@@ -81,8 +89,9 @@ Page({
       }
       let c = JSON.stringify(this.data.content)
       let t = JSON.stringify(tag)
+      let p = JSON.stringify(this.data.overt)
       wx.navigateTo({
-        url: '/pages/details/details?essay=' + encodeURIComponent(c) + '&tag=' + encodeURIComponent(t),
+        url: '/pages/details/details?essay=' + encodeURIComponent(c) + '&tag=' + encodeURIComponent(t) + '&overt=' + encodeURIComponent(p),
       });
     }
   },

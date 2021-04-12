@@ -23,7 +23,6 @@
 
 
   <view class="body" style="height:100%">
-
     <swiper bindchange="scollTab" model:current="{{currentIndex}}" style="height:100%">
       <swiper-item>
         <scroll-view refresher-enabled="true" bindrefresherrefresh="refresh" refresher-triggered="{{triggered}}"
@@ -64,7 +63,7 @@
           scroll-y="true" enable-back-to-top scroll-anchoring class="body-scroll">
           <view class="cards">
             <view class="card" wx:for="{{32}}" wx:key="index">
-              <l-card type="avatar" l-class="card" image="/img/地理.png" title="七月夏天" describe="几分钟前 ">
+              <l-card type="avatar" l-class="card" image="/img/地理.png" title="不二" describe="几分钟前 ">
                 <view class="avter-content">
                   2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
                 </view>
@@ -92,7 +91,7 @@
           scroll-y="true" enable-back-to-top scroll-anchoring class="body-scroll">
           <view class="cards">
             <view class="card" wx:for="{{32}}" wx:key="index">
-              <l-card type="avatar" l-class="card" image="/img/地理.png" title="七月夏天" describe="几分钟前 ">
+              <l-card type="avatar" l-class="card" image="/img/地理.png" title="不二" describe="几分钟前 ">
                 <view class="avter-content">
                   2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
                 </view>
