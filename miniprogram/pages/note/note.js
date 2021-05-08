@@ -33,7 +33,11 @@ Page({
       overt: !this.data.overt
     })
   },
-
+  bindinput(e) {
+    this.setData({
+      content: e.detail.value
+    })
+  },
   toDetail() {
     if (app.globalData.isLogin !== true) {
       wx.getUserProfile({
@@ -42,7 +46,6 @@ Page({
           wx.setStorage({
             key: "nickName",
             data: res.userInfo.nickName,
-            a
           });
           wx.setStorage({
             key: "avatarUrl",
