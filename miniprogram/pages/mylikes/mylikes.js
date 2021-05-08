@@ -1,31 +1,42 @@
-// pages/about/about.js
 const app = getApp();
+const db = wx.cloud.database();
+const _ = db.command
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    vipLevel: "普通会员",
-    score: 0
+    mylikes: [],
+    haveloadall: false,
   },
 
-  toMynote() {
+  clickCard(e) {
+    let num = JSON.stringify(e.currentTarget.dataset.num);
+    let tag = JSON.stringify(e.currentTarget.dataset.pagenum);
     wx.navigateTo({
-      url: '/pages/mynote/mynote',
+      url: '/pages/essay/essay?num=' + encodeURIComponent(num) + '&tag=' + encodeURIComponent(tag)
     })
   },
-  toLikes() {
-    wx.navigateTo({
-      url: '/pages/mylikes/mylikes',
-    })
+  scrolltolower() {
+    console.log("触底了");
+    if (this.data.haveloadall === true) {
+      wx.hideLoading({
+        success: (res) => {
+          console.log("加载完成")
+        },
+      })
+      return;
+    }
+
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      score: app.globalData.score
+    db.collection('articles').where({
+      _id: _.in(app.globalData.likes)
+    }).get().then(res => {
+      this.setData({
+        mylikes: res.data
+      })
     })
   },
 
@@ -40,9 +51,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      score: app.globalData.score
-    })
+
   },
 
   /**
@@ -62,9 +71,9 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  // onPullDownRefresh: function () {
+  onPullDownRefresh: function () {
 
-  // },
+  },
 
   /**
    * 页面上拉触底事件的处理函数

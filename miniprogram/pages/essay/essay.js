@@ -12,7 +12,8 @@ Page({
     num: null,
     essay: {},
     newCommentTxt: null, //用户提交的评论
-    isLike: false
+    isLike: false,
+    isShow: true //互动图标是否显示,查看自己喜欢和笔记时不显示
   },
 
   like() {
@@ -37,20 +38,17 @@ Page({
     })
     if (this.data.tag === "1") {
       app.globalData.essays1[this.data.num].likenum++;
-
     }
     if (this.data.tag === "2") {
       app.globalData.essays2[this.data.num].likenum++;
-
     }
     if (this.data.tag === "3") {
       app.globalData.essays3[this.data.num].likenum++;
-
     }
     if (this.data.tag === "0") {
       app.globalData.essays0[this.data.num].likenum++;
-
     }
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -84,6 +82,7 @@ Page({
         essay: app.globalData.essays0[num],
         num: num,
         tag: tag,
+        isShow: false
       })
     }
     let likes = app.globalData.likes;

@@ -1,0 +1,32 @@
+<view class="container">
+  <scroll-view refresher-enabled="false" bindscrolltolower="scrolltolower" scroll-y="true" enable-back-to-top
+    scroll-anchoring class="body-scroll">
+    <view class="cards">
+      <view id="tom" class="card" wx:for="{{mylikes}}" wx:key="index">
+        <l-card type="avatar" l-class="card" image="{{mylikes[index].avatarUrl}}" title="{{mylikes[index].nickName}}"
+          describe="{{mylikes[index].timestamp}}">
+          <view class="avter-content">
+            <towxml data-num="{{index}}" data-pagenum="0" nodes="{{mylikes[index].article}}" bindtap="clickCard" />
+          </view>
+          <view class="avter-share-container">
+            <view class="like-container">
+              <l-icon name="like" color="#F4516C" size="28" />
+              <view class="number">{{item.likenum}} 喜欢</view>
+            </view>
+            <view class="like-container">
+              <l-icon name="comment" color="#666" size="28" />
+              <view class="number">{{item.comment.length}} 评论</view>
+            </view>
+          </view>
+          <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
+            + 关注
+          </l-tag>
+        </l-card>
+      </view>
+      <l-loadmore show="{{!haveloadall}}" type="loading" loading-text="努力加载中~" line="{{true}}">
+      </l-loadmore>
+      <l-loadmore show="{{haveloadall}}" type="end" line="{{true}}">
+      </l-loadmore>
+    </view>
+  </scroll-view>
+</view>

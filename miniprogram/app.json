@@ -6,7 +6,8 @@
     "pages/about/about",
     "pages/essay/essay",
     "pages/details/details",
-    "pages/mynote/mynote"
+    "pages/mynote/mynote",
+    "pages/mylikes/mylikes"
   ],
   "window": {
     "backgroundColor": "#ffffff",

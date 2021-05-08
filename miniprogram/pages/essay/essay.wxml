@@ -7,13 +7,12 @@
   <view class="body">
     <towxml nodes="{{essay.article}}" />
   </view>
-
   <view class="footer">
-    <view class="favorite">
+    <view class="favorite" wx:if="{{isShow}}">
       <l-button shape="semicircle" type="error" bindtap="like" disabled="{{isLike}}">💖Like it</l-button>
       <l-message />
     </view>
-    <view class="newComment">
+    <view class="newComment"  wx:if="{{isShow}}">
       <view>评论</view>
       <input class="newcommenttxt" type="text" placeholder="发表你的评论~" model:value="{{newCommentTxt}}" />
       <view class="btn">

@@ -45,6 +45,12 @@
         {
           "name": "pages/mynote/mynote",
           "pathName": "pages/mynote/mynote",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mylikes/mylikes",
+          "pathName": "pages/mylikes/mylikes",
           "scene": null
         }
       ]

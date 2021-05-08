@@ -6,10 +6,13 @@ App({
       isLogin: false,
       loading: true,
       likes: [],
-      essays1: [],
-      essays2: [],
-      essays3: [],
-      essays0: [],
+      score: 0,
+      news: [],
+      essays1: [], //分类1笔记
+      essays2: [], //分类2笔记
+      essays3: [], //分类3笔记
+      essays0: [], //我的笔记
+      essays4: [], //我的喜欢
       haveloadall1: false, //是否全部加载完成
       haveloadall2: false,
       haveloadall3: false,
@@ -29,11 +32,16 @@ App({
         this.globalData._openId = res.result.openid
         db.collection('users').doc(this.globalData._openId).get().then(res => {
           this.globalData.likes = res.data.likes
+          this.globalData.score = res.data.score
+          this.globalData.news = res.data.news
+
         }).catch(err => {
           db.collection('users').add({
             data: {
               _id: this.globalData._openId,
-              likes: []
+              likes: [],
+              score: 99,
+              news: []
             }
           })
         })
