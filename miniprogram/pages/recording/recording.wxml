@@ -5,7 +5,7 @@
   <view class="content">
     <view>
       <view class="avter-content">
-        <towxml data-num="{{index}}" data-pagenum="1" nodes="{{essays[index].article}}" bindtap="clickCard" />
+        <towxml data-pagenum="1" nodes="{{essay.article}}" />
       </view>
     </view>
   </view>

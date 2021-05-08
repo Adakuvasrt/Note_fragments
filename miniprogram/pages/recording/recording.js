@@ -1,29 +1,40 @@
 const app = getApp();
+const db = wx.cloud.database();
+const _ = db.command
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index: null,
-    essays: []
+    essay: []
   },
   gogo() {
-    this.setData({
-      index: Math.round(Math.random() * this.data.essays.length)
+    db.collection('articles').aggregate().match({
+      article: _.exists(true),
+      openId: _.eq(app.globalData._openId)
+    }).sample({
+      size: 1
+    }).end().then(res => {
+      this.setData({
+        essay: res.list[0]
+      })
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      essays: app.globalData.essays1,
+    db.collection('articles').aggregate().match({
+      article: _.exists(true),
+      openId: _.eq(app.globalData._openId)
+    }).sample({
+      size: 1
+    }).end().then(res => {
+      this.setData({
+        essay: res.list[0]
+      })
     })
-    this.setData({
-      index: Math.round(Math.random() * this.data.essays.length)
-    })
-
   },
 
   /**
@@ -37,12 +48,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(app.globalData.essays1);
-    this.setData({
-      essays: app.globalData.essays1,
-    })
-    this.setData({
-      index: Math.round(Math.random() * this.data.essays.length)
+    db.collection('articles').aggregate().match({
+      article: _.exists(true),
+      openId: _.eq(app.globalData._openId)
+    }).sample({
+      size: 1
+    }).end().then(res => {
+      this.setData({
+        essay: res.list[0]
+      })
     })
   },
 
