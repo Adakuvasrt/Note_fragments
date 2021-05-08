@@ -23,6 +23,14 @@
   margin: 24rpx;
 }
 
+.btn {
+  text-align: right;
+}
+
+.favorite {
+  text-align: center;
+}
+
 .commentItem {
   border-top: 1px solid rgba(57, 69, 69, 0.8);
   margin: 34rpx;

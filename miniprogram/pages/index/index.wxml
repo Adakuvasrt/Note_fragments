@@ -44,9 +44,9 @@
                     <view class="number">{{item.comment.length}} 评论</view>
                   </view>
                 </view>
-                <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
+                <!-- <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
                   + 关注
-                </l-tag>
+                </l-tag> -->
               </l-card>
             </view>
             <l-loadmore show="{{!haveloadall1}}" type="loading" loading-text="努力加载中~" line="{{true}}">
@@ -78,9 +78,9 @@
                     <view class="number">{{item.comment.length}} 评论</view>
                   </view>
                 </view>
-                <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
+                <!-- <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
                   + 关注
-                </l-tag>
+                </l-tag> -->
               </l-card>
             </view>
             <l-loadmore show="{{!haveloadall2}}" type="loading" loading-text="努力加载中~" line="{{true}}">
@@ -112,9 +112,9 @@
                     <view class="number">{{item.comment.length}} 评论</view>
                   </view>
                 </view>
-                <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
+                <!-- <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
                   + 关注
-                </l-tag>
+                </l-tag> -->
               </l-card>
             </view>
             <l-loadmore show="{{!haveloadall3}}" type="loading" loading-text="努力加载中~" line="{{true}}">

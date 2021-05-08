@@ -2,26 +2,26 @@
   margin-top: 50rpx;
 }
 
-.swiperitem {
-  display: flex;
-  justify-content: center;
-  overflow: scroll;
+.pic {
+  margin: 25rpx 260rpx;
 }
 
-.cardcontent {
-  padding: 24rpx;
-  height: 80%;
-  width: 100%;
+.content {
+  margin: 43rpx 25rpx;
+  height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid;
 }
+
 
 .btns {
-  margin-top: 80rpx;
-  display: flex;
-  justify-content: space-around;
+  position: absolute;
+  width: 100vw;
+  bottom: 100rpx;
 }
 
-.pic {
-  margin: 25rpx 190rpx;
-  display: flex;
-  justify-content: center;
+.btn {
+  text-align: center;
 }

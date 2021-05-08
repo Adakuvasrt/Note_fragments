@@ -1,22 +1,15 @@
-
-
 <view class="container">
   <view class="pic">
     <image src="/img/reading.svg" mode="widthFix"></image>
   </view>
-  <swiper circular>
-    <swiper-item class="swiperitem" wx:for="{{6}}" wx:key="index">
-      <l-card type="primary" plaintext="{{true}}" title="内容标题">
-        <view class="content cardcontent">
-          复习笔记,复习笔记,复习笔记,复习笔记,复习笔记,复习笔记,复习笔记,复习笔记,复习笔记,复习笔记,复习笔记,复习笔记,复习笔记.
-        </view>
-      </l-card>
-    </swiper-item>
-  </swiper>
+  <view class="content">
+    <view>Hello</view>
+  </view>
+
 
   <view class="btns">
-    <l-button type="success">记住</l-button>
-    <l-button type="default">不确定</l-button>
-    <l-button type="error">忘记</l-button>
+    <view class="btn">
+      <l-button type="default" size="large">💫 随机漫步</l-button>
+    </view>
   </view>
 </view>

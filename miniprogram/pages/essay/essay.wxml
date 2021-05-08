@@ -7,12 +7,20 @@
   <view class="body">
     <towxml nodes="{{essay.article}}" />
   </view>
+
   <view class="footer">
+    <view class="favorite">
+      <l-button shape="semicircle" type="error" bindtap="like" disabled="{{isLike}}">💖Like it</l-button>
+      <l-message />
+    </view>
     <view class="newComment">
       <view>评论</view>
       <input class="newcommenttxt" type="text" placeholder="发表你的评论~" model:value="{{newCommentTxt}}" />
-      <l-button bindtap="publishComment">提交</l-button>
+      <view class="btn">
+        <l-button bindtap="publishComment">提交</l-button>
+      </view>
     </view>
+
     <view class="comment">
       <view class="commentItem" wx:for="{{essay.comment}}" wx:key="_id">
         <l-avatar class="commentHead" shape="square" size="70" src="{{item.avatarUrl}}" /> {{item.nickName}} --

@@ -4,8 +4,8 @@ App({
     this.globalData = {
       _openId: "",
       isLogin: false,
-
       loading: true,
+      likes: [],
       essays1: [],
       essays2: [],
       essays3: [],
@@ -14,7 +14,6 @@ App({
       haveloadall2: false,
       haveloadall3: false,
     }
-
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -25,7 +24,19 @@ App({
       wx.cloud.callFunction({
         name: 'login'
       }).then(res => {
+        const db = wx.cloud.database();
+        const _ = db.command;
         this.globalData._openId = res.result.openid
+        db.collection('users').doc(this.globalData._openId).get().then(res => {
+          this.globalData.likes = res.data.likes
+        }).catch(err => {
+          db.collection('users').add({
+            data: {
+              _id: this.globalData._openId,
+              likes: []
+            }
+          })
+        })
       })
       var isLogin = wx.getStorageSync('isLogin');
       var avatarUrl = wx.getStorageSync('avatarUrl');
@@ -36,5 +47,7 @@ App({
         this.globalData.nickName = nickName;
       }
     }
+
+
   },
 })

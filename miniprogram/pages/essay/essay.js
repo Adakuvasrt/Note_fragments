@@ -1,5 +1,7 @@
 const app = getApp();
 import timeformat from '../../utils/timeformat';
+const db = wx.cloud.database();
+const _ = db.command
 Page({
 
   /**
@@ -9,7 +11,46 @@ Page({
     tag: null,
     num: null,
     essay: {},
-    newCommentTxt: null //用户提交的评论
+    newCommentTxt: null, //用户提交的评论
+    isLike: false
+  },
+
+  like() {
+    if (this.data.isLike == true) return;
+    this.setData({
+      isLike: true
+    })
+    wx.lin.showMessage({
+      type: 'success',
+      icon: 'success',
+      content: '操作成功'
+    })
+    db.collection('articles').doc(this.data.essay._id).update({
+      data: {
+        likenum: _.inc(1)
+      }
+    })
+    db.collection('users').doc(app.globalData._openId).update({
+      data: {
+        likes: _.addToSet(this.data.essay._id)
+      }
+    })
+    if (this.data.tag === "1") {
+      app.globalData.essays1[this.data.num].likenum++;
+
+    }
+    if (this.data.tag === "2") {
+      app.globalData.essays2[this.data.num].likenum++;
+
+    }
+    if (this.data.tag === "3") {
+      app.globalData.essays3[this.data.num].likenum++;
+
+    }
+    if (this.data.tag === "0") {
+      app.globalData.essays0[this.data.num].likenum++;
+
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -45,6 +86,11 @@ Page({
         tag: tag,
       })
     }
+    let likes = app.globalData.likes;
+    let res = likes.includes(this.data.essay._id);
+    this.setData({
+      isLike: res
+    })
   },
 
   publishComment() {
@@ -63,8 +109,7 @@ Page({
       txt: this.data.newCommentTxt,
       timestamp: timestamp
     }
-    const db = wx.cloud.database();
-    const _ = db.command
+
     db.collection('articles').doc(this.data.essay._id).update({
       data: {
         comment: _.unshift(newtemp)
