@@ -6,9 +6,9 @@
     <l-sticky-item top="10">
       <view slot="header">
         <l-segment style="height:40px" bind:linchange="changeTabs" id="tab" model:activeKey="{{activekey}}">
-          <l-segment-item tab="学习笔记" key="0" />
-          <l-segment-item tab="随思随想" key="1" />
-          <l-segment-item tab="xxxxxx" key="2" />
+          <l-segment-item tab="📝学习笔记" key="0" />
+          <l-segment-item tab="🏂随思随想" key="1" />
+          <l-segment-item tab="🌼求助讨论" key="2" />
         </l-segment>
       </view>
       <!-- <view slot="body">内容部分</view> -->

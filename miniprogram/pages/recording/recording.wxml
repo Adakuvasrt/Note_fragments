@@ -3,13 +3,16 @@
     <image src="/img/reading.svg" mode="widthFix"></image>
   </view>
   <view class="content">
-    <view>Hello</view>
+    <view>
+      <view class="avter-content">
+        <towxml data-num="{{index}}" data-pagenum="1" nodes="{{essays[index].article}}" bindtap="clickCard" />
+      </view>
+    </view>
   </view>
-
 
   <view class="btns">
     <view class="btn">
-      <l-button type="default" size="large">💫 随机漫步</l-button>
+      <l-button type="default" size="large" bindtap="gogo">💫 随机漫步</l-button>
     </view>
   </view>
 </view>

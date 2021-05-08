@@ -1,4 +1,6 @@
 const app = getApp();
+const db = wx.cloud.database();
+const _ = db.command
 Page({
   data: {
     loading: true,
@@ -101,14 +103,14 @@ Page({
       return;
     }
     this.getAllArticles(9, this.data.essays1.length, 1, true).then(res => {
-      if (res.result.data.length === 0) {
+      if (res.data.length === 0) {
         this.setData({
           haveloadall1: true,
         })
         console.log("已经全部加载完成了");
         return;
       }
-      app.globalData.essays1 = app.globalData.essays1.concat(res.result.data);
+      app.globalData.essays1 = app.globalData.essays1.concat(res.data);
       this.setData({
         essays1: app.globalData.essays1,
       })
@@ -121,14 +123,14 @@ Page({
       return;
     }
     this.getAllArticles(9, this.data.essays2.length, 2, true).then(res => {
-      if (res.result.data.length === 0) {
+      if (res.data.length === 0) {
         this.setData({
           haveloadall2: true,
         })
         console.log("已经全部加载完成了");
         return;
       }
-      app.globalData.essays2 = app.globalData.essays2.concat(res.result.data);
+      app.globalData.essays2 = app.globalData.essays2.concat(res.data);
       this.setData({
         essays2: app.globalData.essays2,
       })
@@ -141,14 +143,14 @@ Page({
       return;
     }
     this.getAllArticles(9, this.data.essays3.length, 3, true).then(res => {
-      if (res.result.data.length === 0) {
+      if (res.data.length === 0) {
         this.setData({
           haveloadall3: true,
         })
         console.log("已经全部加载完成了");
         return;
       }
-      app.globalData.essays3 = app.globalData.essays3.concat(res.result.data);
+      app.globalData.essays3 = app.globalData.essays3.concat(res.data);
       this.setData({
         essays3: app.globalData.essays3,
       })
@@ -157,15 +159,10 @@ Page({
 
   //获取文章函数
   getAllArticles(count, skipNum, tag, overt) {
-    return wx.cloud.callFunction({
-      name: "getArticle",
-      data: {
-        count: count,
-        skipNum: skipNum,
-        tag: tag,
-        overt: overt
-      },
-    })
+    return db.collection('articles').where({
+      overt: overt,
+      tag: tag,
+    }).orderBy('timestamp', 'desc').limit(count).skip(skipNum).get()
   },
 
   search: function (value) {
@@ -193,27 +190,27 @@ Page({
    */
   onLoad: function (options) {
     wx.showNavigationBarLoading();
-    this.getAllArticles(9, 0, 1, true).then(res => {
-      app.globalData.essays1 = res.result.data;
+    this.getAllArticles(6, 0, 1, true).then(res => {
+      app.globalData.essays1 = res.data;
       this.setData({
-        essays1: res.result.data,
+        essays1: res.data,
         loading: false,
       })
       wx.hideNavigationBarLoading({
         success: (res) => {},
       })
     });
-    this.getAllArticles(9, 0, 2, true).then(res => {
-      app.globalData.essays2 = res.result.data;
+    this.getAllArticles(6, 0, 2, true).then(res => {
+      app.globalData.essays2 = res.data;
       this.setData({
-        essays2: res.result.data,
+        essays2: res.data,
         loading: false,
       })
     });
-    this.getAllArticles(9, 0, 3, true).then(res => {
-      app.globalData.essays3 = res.result.data;
+    this.getAllArticles(6, 0, 3, true).then(res => {
+      app.globalData.essays3 = res.data;
       this.setData({
-        essays3: res.result.data,
+        essays3: res.data,
         loading: false,
       })
     });

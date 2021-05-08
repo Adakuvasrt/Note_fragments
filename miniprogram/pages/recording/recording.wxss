@@ -1,25 +1,24 @@
 .container {
-  margin-top: 50rpx;
+  margin-top: 12rpx;
 }
 
 .pic {
-  margin: 25rpx 260rpx;
+  margin: 12rpx 260rpx;
 }
 
 .content {
-  margin: 43rpx 25rpx;
+  margin: 43rpx 14rpx;
   height: 55vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid;
+  text-align: center;
+  border: 1px solid aqua;
+  overflow: scroll;
 }
 
 
 .btns {
   position: absolute;
   width: 100vw;
-  bottom: 100rpx;
+  bottom: 150rpx;
 }
 
 .btn {

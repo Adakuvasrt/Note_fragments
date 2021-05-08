@@ -1,17 +1,28 @@
-// pages/recording/recording.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    index: null,
+    essays: []
   },
-
+  gogo() {
+    this.setData({
+      index: Math.round(Math.random() * this.data.essays.length)
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      essays: app.globalData.essays1,
+    })
+    this.setData({
+      index: Math.round(Math.random() * this.data.essays.length)
+    })
 
   },
 
@@ -26,7 +37,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(app.globalData.essays1);
+    this.setData({
+      essays: app.globalData.essays1,
+    })
+    this.setData({
+      index: Math.round(Math.random() * this.data.essays.length)
+    })
   },
 
   /**
