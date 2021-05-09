@@ -47,9 +47,9 @@ Page({
       title: '加载中',
     });
     this.getAllArticles(9, 0, 1, true).then(res => {
-      app.globalData.essays1 = res.data;
+      app.globalData.essays1 = res.list;
       this.setData({
-        essays1: res.data,
+        essays1: res.list,
       });
       wx.hideLoading({
         success: (res) => {
@@ -66,9 +66,9 @@ Page({
       title: '加载中',
     });
     this.getAllArticles(9, 0, 2, true).then(res => {
-      app.globalData.essays2 = res.data;
+      app.globalData.essays2 = res.list;
       this.setData({
-        essays2: res.data,
+        essays2: res.list,
       });
       wx.hideLoading({
         success: (res) => {
@@ -82,9 +82,9 @@ Page({
       title: '加载中',
     });
     this.getAllArticles(9, 0, 3, true).then(res => {
-      app.globalData.essays3 = res.data;
+      app.globalData.essays3 = res.list;
       this.setData({
-        essays3: res.data,
+        essays3: res.list,
       });
       wx.hideLoading({
         success: (res) => {
@@ -103,14 +103,14 @@ Page({
       return;
     }
     this.getAllArticles(9, this.data.essays1.length, 1, true).then(res => {
-      if (res.data.length === 0) {
+      if (res.list.length === 0) {
         this.setData({
           haveloadall1: true,
         })
         console.log("已经全部加载完成了");
         return;
       }
-      app.globalData.essays1 = app.globalData.essays1.concat(res.data);
+      app.globalData.essays1 = app.globalData.essays1.concat(res.list);
       this.setData({
         essays1: app.globalData.essays1,
       })
@@ -123,14 +123,14 @@ Page({
   //     return;
   //   }
   //   this.getAllArticles(9, this.data.essays2.length, 2, true).then(res => {
-  //     if (res.data.length === 0) {
+  //     if (res.list.length === 0) {
   //       this.setData({
   //         haveloadall2: true,
   //       })
   //       console.log("已经全部加载完成了");
   //       return;
   //     }
-  //     app.globalData.essays2 = app.globalData.essays2.concat(res.data);
+  //     app.globalData.essays2 = app.globalData.essays2.concat(res.list);
   //     this.setData({
   //       essays2: app.globalData.essays2,
   //     })
@@ -143,14 +143,14 @@ Page({
   //     return;
   //   }
   //   this.getAllArticles(9, this.data.essays3.length, 3, true).then(res => {
-  //     if (res.data.length === 0) {
+  //     if (res.list.length === 0) {
   //       this.setData({
   //         haveloadall3: true,
   //       })
   //       console.log("已经全部加载完成了");
   //       return;
   //     }
-  //     app.globalData.essays3 = app.globalData.essays3.concat(res.data);
+  //     app.globalData.essays3 = app.globalData.essays3.concat(res.list);
   //     this.setData({
   //       essays3: app.globalData.essays3,
   //     })
@@ -159,10 +159,17 @@ Page({
 
   //获取文章函数
   getAllArticles(count, skipNum, tag, overt) {
-    return db.collection('articles').where({
+    // return db.collection('articles').where({
+    //   overt: overt,
+    //   tag: tag,
+    // }).orderBy('top', 'desc').orderBy('timestamp', 'desc').skip(skipNum).limit(count).get()
+    return db.collection('articles').aggregate().match({
       overt: overt,
-      tag: tag,
-    }).orderBy('top', 'desc').orderBy('timestamp', 'desc').limit(count).skip(skipNum).get()
+      tag: tag
+    }).sort({
+      top: -1,
+      timestamp: -1
+    }).limit(count).skip(skipNum).end()
   },
 
   search: function (value) {
@@ -191,91 +198,33 @@ Page({
   onLoad: function (options) {
     wx.showNavigationBarLoading();
     this.getAllArticles(6, 0, 1, true).then(res => {
-      app.globalData.essays1 = res.data;
+      app.globalData.essays1 = res.list;
       this.setData({
-        essays1: res.data,
+        essays1: res.list,
         loading: false,
       })
       wx.hideNavigationBarLoading({
         success: (res) => {},
       })
+    }).catch(res => {
+      console.log(res);
+      this.setData({
+        loading: false
+      })
     });
     // this.getAllArticles(6, 0, 2, true).then(res => {
-    //   app.globalData.essays2 = res.data;
+    //   app.globalData.essays2 = res.list;
     //   this.setData({
-    //     essays2: res.data,
+    //     essays2: res.list,
     //     loading: false,
     //   })
     // });
     // this.getAllArticles(6, 0, 3, true).then(res => {
-    //   app.globalData.essays3 = res.data;
+    //   app.globalData.essays3 = res.list;
     //   this.setData({
-    //     essays3: res.data,
+    //     essays3: res.list,
     //     loading: false,
     //   })
     // });
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    wx.hideNavigationBarLoading();
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    this.setData({
-      essays1: app.globalData.essays1,
-      essays2: app.globalData.essays2,
-      essays3: app.globalData.essays3,
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-    // 用户触发了下拉刷新操作
-    // wx.showNavigationBarLoading();
-    // 拉取新数据重新渲染界面
-    setTimeout(() => {
-      wx.stopPullDownRefresh();
-      // wx.hideNavigationBarLoading();
-    }, 500)
-
-    // wx.stopPullDownRefresh() // 可以停止当前页面的下拉刷新。
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    console.log("上拉触底")
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })
