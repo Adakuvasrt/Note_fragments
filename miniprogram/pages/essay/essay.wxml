@@ -16,7 +16,7 @@
       <view class="square"></view>
       <view class="mark-title">评论</view>
       <view class="aline"></view>
-      <input class="newcommenttxt" type="text" placeholder="发表你的评论~" model:value="{{newCommentTxt}}" />
+      <textarea class="newcommenttxt" type="text" placeholder="发表你的评论~" maxlength="400" />
       <view class="btn">
         <l-button bindtap="publishComment">提交</l-button>
       </view>
@@ -24,8 +24,11 @@
 
     <view class="comment">
       <view class="commentItem" wx:for="{{essay.comment}}" wx:key="_id">
-        <l-avatar class="commentHead" shape="square" size="70" src="{{item.avatarUrl}}" /> {{item.nickName}} --
-        {{item.timestamp}}
+        <view class="commetinfo">
+          <view class="commerinfo">
+            <l-avatar class="commerHead" shape="square" size="70" src="{{item.avatarUrl}}" /> {{item.nickName}}</view>
+          <view class="timeshow">{{item.timestamp}}</view>
+        </view>
         <view class="commenttext">{{item.txt}}</view>
       </view>
     </view>

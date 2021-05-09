@@ -16,11 +16,12 @@
 }
 
 .avatar-tag {
+  margin-top: 22rpx;
   margin-right: 28rpx;
 }
 
 .dolist {
-  margin: 23rpx 10rpx;
+  margin: 42rpx 10rpx;
 }
 
 .item {
@@ -35,4 +36,5 @@
 
 .contact {
   text-align: center;
+  margin: 43rpx;
 }

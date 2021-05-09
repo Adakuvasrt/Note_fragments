@@ -39,8 +39,15 @@
 
 .body {
   margin: 0;
-  border-top: 1px solid aqua;
-  border-bottom: 1px solid aqua;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+textarea {
+  height: 150rpx;
+  width: 80vw;
+  padding: 15rpx;
+  border: 1px dashed #eee;
 }
 
 .footer {
@@ -59,15 +66,26 @@
   text-align: center;
 }
 
+.comment {}
+
 .commentItem {
-  border-top: 1px solid rgba(57, 69, 69, 0.8);
-  margin: 34rpx;
+  border-top: 1rpx solid rgba(57, 69, 69, 0.2);
+  margin: 24rpx;
+  padding-top: 23rpx;
+}
+
+.commetinfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.commerHead {
+  margin-right: 16rpx;
+  vertical-align: middle;
+  font-size: medium;
 }
 
 .commenttext {
-  margin: 34rpx;
-}
-
-.commentHead {
-  margin-top: 23rpx;
+  margin: 16rpx 6rpx;
+  padding: 4rpx;
 }

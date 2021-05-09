@@ -6,7 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    vipLevel: "普通会员",
+    vipLevel: 1,
+    vipBadge: "LV 0",
+    vipBadges: ["Error", "LV 1", "LV 2", "LV 3", "LV 4", "LV 5"],
+    vipColors: ["#d9ecf2", "#41aea9", "#0278ae", "#3d84b8", "#344fa1", "#3f3697"],
+    vipColor: "",
     score: 0
   },
 
@@ -24,9 +28,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let badge = this.data.vipBadges[app.globalData.vipLevel]
+    let color = this.data.vipColors[app.globalData.vipLevel]
     this.setData({
-      score: app.globalData.score
+      score: app.globalData.score,
+      vipLevel: app.globalData.vipLevel,
+      vipBadge: badge,
+      vipColor: color,
     })
+
   },
 
   /**
@@ -41,7 +51,8 @@ Page({
    */
   onShow: function () {
     this.setData({
-      score: app.globalData.score
+      score: app.globalData.score,
+      vipLevel: app.globalData.vipLevel
     })
   },
 

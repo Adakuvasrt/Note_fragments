@@ -1,8 +1,8 @@
 <view class="container">
   <view class="main">
     <view class="title">发表想法</view>
-    <textarea model:value="{{content}}" placeholder="开始书写吧" maxlength="4820" show-confirm-bar="false"
-      adjust-position="false" bindinput="bindinput" disable-default-padding="true" class="write"></textarea>
+    <textarea placeholder="开始书写吧~ (支持Markdown格式)" maxlength="4820" show-confirm-bar="false" adjust-position="false"
+      bindinput="bindinput" disable-default-padding="true" class="write"></textarea>
     <button bind:tap="toDetail">🎨预览</button>
     <view class="selecttag">
       <view>选择标签</view>

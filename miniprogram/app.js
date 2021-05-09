@@ -7,6 +7,7 @@ App({
       loading: true,
       likes: [],
       score: 0,
+      vipLevel:1,
       news: [],
       essays1: [], //分类1笔记
       essays2: [], //分类2笔记
@@ -34,16 +35,22 @@ App({
           this.globalData.likes = res.data.likes
           this.globalData.score = res.data.score
           this.globalData.news = res.data.news
+          this.globalData.vipLevel = res.data.vipLevel
 
         }).catch(err => {
           db.collection('users').add({
             data: {
               _id: this.globalData._openId,
               likes: [],
-              score: 99,
-              news: []
+              score:100,
+              news: [],
+              vipLevel:1
             }
           })
+          this.globalData.likes = []
+          this.globalData.score = 100
+          this.globalData.news = []
+          this.globalData.vipLevel = 1
         })
       })
       var isLogin = wx.getStorageSync('isLogin');

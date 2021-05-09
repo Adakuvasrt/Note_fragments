@@ -2,7 +2,8 @@
   <view class="avatar" bindtap="toLogin">
     <l-avatar open-data="{{['userAvatarUrl','userNickName']}}" />
     <div class="avatar-tag">
-      <l-tag shape="circle" size="medium" type="reading" height="46" bg-color="#999">{{vipLevel}}</l-tag>
+      <l-tag shape="circle" size="medium" type="reading" height="46" bg-color="{{vipColor}}">{{vipBadge}}
+      </l-tag>
     </div>
   </view>
   <view class="dolist">
@@ -14,9 +15,9 @@
     <l-list title="使用帮助" icon="favor" class="item" desc="版本号: 0.67" />
   </view>
   <view class="contact">
-    <l-button open-type="contact">禁止联系客服</l-button>
+    <l-button open-type="contact">联系客服</l-button>
   </view>
   <view class="pic">
-    <image src="/img/goals.svg" mode="widthFix"></image>
+    <image src="" mode="widthFix"></image>
   </view>
 </view>
