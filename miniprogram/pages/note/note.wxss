@@ -18,7 +18,7 @@
 .show {
   margin: 15rpx;
   overflow: scroll;
-  border: 1px dashed black;
+  border: 1px solid aqua;
 }
 
 .md {
@@ -28,12 +28,11 @@
 
 
 .write {
-  margin: 15rpx;
-  height: 30vh;
+  margin: 15rpx -15rpx;
+  height: 32vh;
   width: 100%;
   padding: 12rpx;
-  border: 1px dashed black;
-
+  border: 1px solid aqua;
 }
 
 .selecttag {

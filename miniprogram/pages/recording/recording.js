@@ -7,11 +7,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    essay: []
+    essay: null,
+    temp: {}
   },
   gogo() {
+    let res = app.towxml('Loading...', 'markdown');
+    let temp = {
+      article: res
+    }
+    this.setData({
+      essay: temp
+    })
     db.collection('articles').aggregate().match({
-      article: _.exists(true),
       openId: _.eq(app.globalData._openId)
     }).sample({
       size: 1
@@ -26,7 +33,6 @@ Page({
    */
   onLoad: function (options) {
     db.collection('articles').aggregate().match({
-      article: _.exists(true),
       openId: _.eq(app.globalData._openId)
     }).sample({
       size: 1
@@ -48,16 +54,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    db.collection('articles').aggregate().match({
-      article: _.exists(true),
-      openId: _.eq(app.globalData._openId)
-    }).sample({
-      size: 1
-    }).end().then(res => {
-      this.setData({
-        essay: res.list[0]
-      })
-    })
+
   },
 
   /**

@@ -24,7 +24,20 @@ Page({
       })
       return;
     }
-
+    db.collection('articles').where({
+      _id: _.in(app.globalData.likes)
+    }).limit(this.data.mylikes.length).get().then(res => {
+      if (res.data.length === 0) {
+        this.setData({
+          haveloadall: true
+        })
+        return;
+      }
+      app.globalData.essays4 = app.globalData.essays4.concat(res.data)
+      this.setData({
+        mylikes: res.data
+      })
+    })
   },
 
   /**
@@ -33,59 +46,11 @@ Page({
   onLoad: function (options) {
     db.collection('articles').where({
       _id: _.in(app.globalData.likes)
-    }).get().then(res => {
+    }).limit(6).get().then(res => {
       this.setData({
         mylikes: res.data
       })
+      app.globalData.essays4 = res.data
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

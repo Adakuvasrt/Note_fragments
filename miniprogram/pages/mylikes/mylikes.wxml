@@ -6,7 +6,7 @@
         <l-card type="avatar" l-class="card" image="{{mylikes[index].avatarUrl}}" title="{{mylikes[index].nickName}}"
           describe="{{mylikes[index].timestamp}}">
           <view class="avter-content">
-            <towxml data-num="{{index}}" data-pagenum="0" nodes="{{mylikes[index].article}}" bindtap="clickCard" />
+            <towxml data-num="{{index}}" data-pagenum="4" nodes="{{mylikes[index].article}}" bindtap="clickCard" />
           </view>
           <view class="avter-share-container">
             <view class="like-container">

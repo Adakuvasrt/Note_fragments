@@ -4,15 +4,43 @@
 }
 
 .head {
-
   text-align: left;
+  margin: 20rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  margin: 34rpx;
+.timeshow {
+  margin-right: 45rpx;
+}
+
+.square {
+  display: inline-block;
+  width: 5px;
+  height: 15px;
+  background: blueviolet;
+  vertical-align: middle;
+}
+
+.mark-title {
+  margin-left: 7px;
+  display: inline;
+  vertical-align: middle;
+}
+
+.aline {
+  margin: 15rpx 15rpx;
+  background: #E0E3DA;
+  width: 90vw;
+  height: 1px;
 }
 
 .body {
-  border-top: 1px solid #a5c2c2;
-  border-bottom: 1px solid #a5c2c2;
+  margin: 0;
+  border-top: 1px solid aqua;
+  border-bottom: 1px solid aqua;
 }
 
 .footer {

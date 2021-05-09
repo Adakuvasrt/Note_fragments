@@ -99,7 +99,6 @@ Page({
     this.setData({
       article: res
     })
-
   },
 
   /**

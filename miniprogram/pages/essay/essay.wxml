@@ -12,8 +12,10 @@
       <l-button shape="semicircle" type="error" bindtap="like" disabled="{{isLike}}">💖Like it</l-button>
       <l-message />
     </view>
-    <view class="newComment"  wx:if="{{isShow}}">
-      <view>评论</view>
+    <view class="newComment" wx:if="{{isShow}}">
+      <view class="square"></view>
+      <view class="mark-title">评论</view>
+      <view class="aline"></view>
       <input class="newcommenttxt" type="text" placeholder="发表你的评论~" model:value="{{newCommentTxt}}" />
       <view class="btn">
         <l-button bindtap="publishComment">提交</l-button>

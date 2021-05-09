@@ -45,10 +45,6 @@ Page({
     if (this.data.tag === "3") {
       app.globalData.essays3[this.data.num].likenum++;
     }
-    if (this.data.tag === "0") {
-      app.globalData.essays0[this.data.num].likenum++;
-    }
-
   },
   /**
    * 生命周期函数--监听页面加载
@@ -80,6 +76,14 @@ Page({
     if (tag === "0") {
       this.setData({
         essay: app.globalData.essays0[num],
+        num: num,
+        tag: tag,
+        isShow: false
+      })
+    }
+    if (tag === "4") {
+      this.setData({
+        essay: app.globalData.essays4[num],
         num: num,
         tag: tag,
         isShow: false
