@@ -6,8 +6,8 @@ swiper,
 swiper-item,
 image {
   /*设置组件全局边距*/
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   /*
   * 指定元素的宽或高包含padding和border，不包含mmargin。
   * 如果不设置默认为content-box，元素的宽或高不包含padding和border
@@ -17,32 +17,4 @@ image {
 
 page {
   background: #fefefe;
-}
-
-/*实现新拟态风格*/
-.soft-ui {
-  border-radius: 16px;
-  background: #ecf0f3;
-  box-shadow: 5px 5px 9px #cbced1,
-    -5px -5px 9px #ffffff;
-}
-
-.soft-ui-active {
-  border-radius: 20px;
-  background: #ecf0f3;
-  box-shadow: inset 14px 14px 11px #d4d8db,
-    inset -14px -14px 11px #ffffff;
-}
-
-.soft-ui-re {
-  border-radius: 16px;
-  background: #EFEEEE;
-  box-shadow: inset 5px 5px 9px #cecdcd,
-    inset -5px -5px 9px #ffffff;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #F90;
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent);
-  border-radius: 2em;
 }

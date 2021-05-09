@@ -46,6 +46,11 @@ Page({
       app.globalData.essays3[this.data.num].likenum++;
     }
   },
+  getinput(e) {
+    this.setData({
+      newCommentTxt: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

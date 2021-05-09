@@ -2,12 +2,8 @@
   <view class="pic">
     <image src="/img/reading.svg" mode="widthFix"></image>
   </view>
-  <view class="content">
-    <view>
-      <view class="avter-content">
-        <towxml data-pagenum="1" nodes="{{essay.article}}" />
-      </view>
-    </view>
+  <view class="content" id="rocordnote">
+      <towxml nodes="{{essay.article}}" />
   </view>
 
   <view class="btns">

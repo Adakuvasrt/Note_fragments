@@ -30,7 +30,7 @@
             <view id="tom" class="card" wx:for="{{essays1}}" wx:key="index">
               <l-card type="avatar" l-class="card" image="{{essays1[index].avatarUrl}}"
                 title="{{essays1[index].nickName}}" describe="{{essays1[index].timestamp}}">
-                <view class="avter-content">
+                <view class="card-content">
                   <towxml data-num="{{index}}" data-pagenum="1" nodes="{{essays1[index].article}}"
                     bindtap="clickCard" />
                 </view>

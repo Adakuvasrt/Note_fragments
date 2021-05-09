@@ -1,5 +1,10 @@
 @import "./index.skeleton.wxss";
 
+page {
+  margin: 0;
+  padding: 0;
+}
+
 .avter-share-container {
   display: flex;
   justify-content: flex-end;
@@ -75,6 +80,10 @@
 }
 
 .card {
-  margin: 9rpx auto;
+
+  margin: 12rpx auto;
   width: 100%;
+  max-height: 35vh;
+  overflow: hidden;
+
 }

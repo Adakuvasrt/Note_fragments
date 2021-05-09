@@ -16,7 +16,7 @@
       <view class="square"></view>
       <view class="mark-title">评论</view>
       <view class="aline"></view>
-      <textarea class="newcommenttxt" type="text" placeholder="发表你的评论~" maxlength="400" />
+      <textarea class="newcommenttxt" type="text" placeholder="发表你的评论~" maxlength="400" bindinput="getinput"/>
       <view class="btn">
         <l-button bindtap="publishComment">提交</l-button>
       </view>
