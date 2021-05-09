@@ -30,6 +30,7 @@ exports.main = async (event, context) => {
       likenum: 0,
       comment: [],
       timestamp: timestampf,
+      top: 0
     }
   });
   return 1;

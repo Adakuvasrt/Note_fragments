@@ -47,9 +47,9 @@ Page({
       title: '加载中',
     });
     this.getAllArticles(9, 0, 1, true).then(res => {
-      app.globalData.essays1 = res.result.data;
+      app.globalData.essays1 = res.data;
       this.setData({
-        essays1: res.result.data,
+        essays1: res.data,
       });
       wx.hideLoading({
         success: (res) => {
@@ -66,9 +66,9 @@ Page({
       title: '加载中',
     });
     this.getAllArticles(9, 0, 2, true).then(res => {
-      app.globalData.essays2 = res.result.data;
+      app.globalData.essays2 = res.data;
       this.setData({
-        essays2: res.result.data,
+        essays2: res.data,
       });
       wx.hideLoading({
         success: (res) => {
@@ -82,9 +82,9 @@ Page({
       title: '加载中',
     });
     this.getAllArticles(9, 0, 3, true).then(res => {
-      app.globalData.essays3 = res.result.data;
+      app.globalData.essays3 = res.data;
       this.setData({
-        essays3: res.result.data,
+        essays3: res.data,
       });
       wx.hideLoading({
         success: (res) => {
@@ -116,53 +116,53 @@ Page({
       })
     });
   },
-  scrolltolower2() {
-    console.log("触底了");
-    if (this.data.haveloadall2 === true) {
-      console.log("已经加载全部");
-      return;
-    }
-    this.getAllArticles(9, this.data.essays2.length, 2, true).then(res => {
-      if (res.data.length === 0) {
-        this.setData({
-          haveloadall2: true,
-        })
-        console.log("已经全部加载完成了");
-        return;
-      }
-      app.globalData.essays2 = app.globalData.essays2.concat(res.data);
-      this.setData({
-        essays2: app.globalData.essays2,
-      })
-    });
-  },
-  scrolltolower3() {
-    console.log("触底了");
-    if (this.data.haveloadall3 === true) {
-      console.log("已经加载全部");
-      return;
-    }
-    this.getAllArticles(9, this.data.essays3.length, 3, true).then(res => {
-      if (res.data.length === 0) {
-        this.setData({
-          haveloadall3: true,
-        })
-        console.log("已经全部加载完成了");
-        return;
-      }
-      app.globalData.essays3 = app.globalData.essays3.concat(res.data);
-      this.setData({
-        essays3: app.globalData.essays3,
-      })
-    });
-  },
+  // scrolltolower2() {
+  //   console.log("触底了");
+  //   if (this.data.haveloadall2 === true) {
+  //     console.log("已经加载全部");
+  //     return;
+  //   }
+  //   this.getAllArticles(9, this.data.essays2.length, 2, true).then(res => {
+  //     if (res.data.length === 0) {
+  //       this.setData({
+  //         haveloadall2: true,
+  //       })
+  //       console.log("已经全部加载完成了");
+  //       return;
+  //     }
+  //     app.globalData.essays2 = app.globalData.essays2.concat(res.data);
+  //     this.setData({
+  //       essays2: app.globalData.essays2,
+  //     })
+  //   });
+  // },
+  // scrolltolower3() {
+  //   console.log("触底了");
+  //   if (this.data.haveloadall3 === true) {
+  //     console.log("已经加载全部");
+  //     return;
+  //   }
+  //   this.getAllArticles(9, this.data.essays3.length, 3, true).then(res => {
+  //     if (res.data.length === 0) {
+  //       this.setData({
+  //         haveloadall3: true,
+  //       })
+  //       console.log("已经全部加载完成了");
+  //       return;
+  //     }
+  //     app.globalData.essays3 = app.globalData.essays3.concat(res.data);
+  //     this.setData({
+  //       essays3: app.globalData.essays3,
+  //     })
+  //   });
+  // },
 
   //获取文章函数
   getAllArticles(count, skipNum, tag, overt) {
     return db.collection('articles').where({
       overt: overt,
       tag: tag,
-    }).orderBy('timestamp', 'desc').limit(count).skip(skipNum).get()
+    }).orderBy('top', 'desc').orderBy('timestamp', 'desc').limit(count).skip(skipNum).get()
   },
 
   search: function (value) {
@@ -200,20 +200,20 @@ Page({
         success: (res) => {},
       })
     });
-    this.getAllArticles(6, 0, 2, true).then(res => {
-      app.globalData.essays2 = res.data;
-      this.setData({
-        essays2: res.data,
-        loading: false,
-      })
-    });
-    this.getAllArticles(6, 0, 3, true).then(res => {
-      app.globalData.essays3 = res.data;
-      this.setData({
-        essays3: res.data,
-        loading: false,
-      })
-    });
+    // this.getAllArticles(6, 0, 2, true).then(res => {
+    //   app.globalData.essays2 = res.data;
+    //   this.setData({
+    //     essays2: res.data,
+    //     loading: false,
+    //   })
+    // });
+    // this.getAllArticles(6, 0, 3, true).then(res => {
+    //   app.globalData.essays3 = res.data;
+    //   this.setData({
+    //     essays3: res.data,
+    //     loading: false,
+    //   })
+    // });
   },
 
   /**
