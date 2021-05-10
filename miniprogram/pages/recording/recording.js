@@ -19,13 +19,15 @@ Page({
       essay: temp
     })
     db.collection('articles').aggregate().match({
-      openId: _.eq(app.globalData._openId)
+      openId: _.or(_.eq(app.globalData._openId), _.in(app.globalData.likes))
     }).sample({
       size: 1
     }).end().then(res => {
       this.setData({
         essay: res.list[0]
       })
+    }).catch(res => {
+      console.log(res);
     })
   },
   /**
@@ -33,7 +35,7 @@ Page({
    */
   onLoad: function (options) {
     db.collection('articles').aggregate().match({
-      openId: _.eq(app.globalData._openId)
+      openId: _.or(_.eq(app.globalData._openId), _.in(app.globalData.likes))
     }).sample({
       size: 1
     }).end().then(res => {

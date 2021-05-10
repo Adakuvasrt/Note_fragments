@@ -10,7 +10,7 @@ Page({
   data: {
     tag: null,
     num: null,
-    essay: {},
+    essay: null,
     newCommentTxt: null, //用户提交的评论
     isLike: false,
     isShow: true //互动图标是否显示,查看自己喜欢和笔记时不显示

@@ -60,7 +60,6 @@ page {
 
 .body {
   flex: 1;
-  position: relative;
 }
 
 .body-scroll {
@@ -80,10 +79,31 @@ page {
 }
 
 .card {
-
   margin: 12rpx auto;
   width: 100%;
-  max-height: 35vh;
-  overflow: hidden;
+}
 
+.card-content {
+  max-height: 37vh;
+  overflow: hidden;
+}
+
+.ulBlend::before {
+  content: "";
+  position: absolute;
+  width: 95%;
+  height: 62px;
+  margin-top: -60px;
+  left: 10px;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 1)));
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
+  background: linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
+}
+
+.showAll {
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  font-weight: bold;
 }

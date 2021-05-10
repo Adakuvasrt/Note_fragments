@@ -16,6 +16,12 @@
   margin-right: 45rpx;
 }
 
+.whenloading {
+  text-align: center;
+  margin: 9vh;
+  font-size: xx-large;
+}
+
 .square {
   display: inline-block;
   width: 5px;

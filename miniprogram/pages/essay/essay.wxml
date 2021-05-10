@@ -5,6 +5,7 @@
   </view>
 
   <view class="body">
+    <view wx:if="{{essay===null}}" class="whenloading">Loading...</view>
     <towxml nodes="{{essay.article}}" />
   </view>
   <view class="footer">
@@ -16,7 +17,7 @@
       <view class="square"></view>
       <view class="mark-title">评论</view>
       <view class="aline"></view>
-      <textarea class="newcommenttxt" type="text" placeholder="发表你的评论~" maxlength="400" bindinput="getinput"/>
+      <textarea class="newcommenttxt" type="text" placeholder="发表你的评论~" maxlength="400" bindinput="getinput" />
       <view class="btn">
         <l-button bindtap="publishComment">提交</l-button>
       </view>
