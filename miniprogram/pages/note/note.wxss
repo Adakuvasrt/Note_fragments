@@ -1,0 +1,46 @@
+.container {
+  position: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.main {
+  flex: 1;
+}
+
+.title {
+  text-align: center;
+  margin: 15px auto;
+
+}
+
+.show {
+  margin: 15rpx;
+  overflow: scroll;
+  border: 1px solid aqua;
+}
+
+.md {
+  height: 100%;
+  border: none;
+}
+
+
+.write {
+  margin: 15rpx auto;
+  height: 38vh;
+  width: 100%;
+  padding: 15rpx;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+}
+
+.selecttag {
+  display: flex;
+  justify-content: center;
+}
+
+.select {
+  background: #2c61b4 !important;
+  color: #fff !important;
+}

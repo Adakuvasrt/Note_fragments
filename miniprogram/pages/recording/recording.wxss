@@ -1,0 +1,21 @@
+.pic {
+  margin: 12rpx 260rpx;
+}
+
+#rocordnote {
+  margin: 33rpx 16rpx;
+  height: 60vh;
+  border-bottom: 1rpx solid rgba(57, 69, 69, 0.2);
+  border-top: 1rpx solid rgba(57, 69, 69, 0.2);
+  overflow: scroll;
+}
+
+.btns {
+  position: absolute;
+  width: 100vw;
+  bottom: 6vh;
+}
+
+.btn {
+  text-align: center;
+}

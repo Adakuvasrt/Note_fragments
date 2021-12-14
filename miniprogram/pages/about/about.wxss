@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  margin: 0rpx;
+  height: 100vh;
+}
+
+.avatar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0rpx;
+  padding: 26px;
+  box-shadow: 0px 8rpx 24rpx rgba(0, 0, 0, 0.1);
+}
+
+.avatar-tag {
+  margin-top: 22rpx;
+  margin-right: 28rpx;
+}
+
+.dolist {
+  margin: 42rpx 10rpx;
+}
+
+.item {
+  padding-top: 100rpx;
+}
+
+.pic {
+  margin: 24rpx 180rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.contact {
+  text-align: center;
+  margin: 43rpx;
+}

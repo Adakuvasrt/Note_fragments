@@ -1,0 +1,221 @@
+<!--
+此文件为开发者工具生成，生成时间: 2021/11/14 下午5:35:49
+使用方法：
+在 C:\Users\28718\WeChatProjects\Note_fragments\miniprogram\pages\index\index.wxml 引入模板
+
+```
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 C:\Users\28718\WeChatProjects\Note_fragments\miniprogram\pages\index\index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="container">
+      <view is="miniprogram_npm/lin-ui/sticky/index">
+        <view class="sticky-index--l-sticky ">
+          <view is="miniprogram_npm/lin-ui/sticky-item/index">
+            <view class="sticky-item-index--l-sticky-item ">
+              <view class="sticky-item-index--l-sticky-item-header-wrapper " style="height:auto"></view>
+              <view class="sticky-item-index--l-sticky-item-header sticky-item-index--l-sticky-item-header "
+                style=" top:5px">
+                <view>
+                  <view is="miniprogram_npm/lin-ui/segment/index" id="tab" style="height:40px">
+                    <view class="segment-index--l-tabs  segment-index--l-placement-top segment-index--l-tabs-horizontal"
+                      style="true">
+                      <scroll-view scroll-with-animation="true"
+                        class="segment-index--l-tabsscroll  segment-index--l-tabs-header-line  " scroll-left="0"
+                        scroll-top="0" scroll-x="true" style="border: none;">
+                        <view class="segment-index--l-tabs-header segment-index--l-tabs-equal-header">
+                          <view
+                            class="segment-index--l-tabs-item segment-index--l-tabs-equal-width segment-index--l-tabs-active segment-index--l-tab-image-placement-top sk-transparent"
+                            data-index="0" data-key="0" style="color:;;">
+                            个人笔记
+                            <view class="segment-index--l-tab-line  " style="background:"></view>
+                          </view>
+                          <view
+                            class="segment-index--l-tabs-item segment-index--l-tabs-equal-width segment-index--l-tabs-inactive segment-index--l-tab-image-placement-top sk-transparent"
+                            data-index="1" data-key="1" style="color:;;">
+                            笔记广场
+                            <view class="segment-index--l-tab-line" style="background:"></view>
+                          </view>
+                        </view>
+                      </scroll-view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="sticky-item-index--l-sticky-item-body "></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="body" style="height:100vh">
+        <swiper current="0" style="height:100vh" autoplay="false">
+          <swiper-item
+            style="position: absolute; width: 100%; height: 100%; transform: translate(0%, 0px) translateZ(0px);">
+            <scroll-view enable-back-to-top="true" scroll-anchoring="true" class="body-scroll" refresher-enabled="true"
+              refresher-triggered="true" scroll-y="true">
+              <view class="cards">
+                <view class="card" id="tom">
+                  <view is="miniprogram_npm/lin-ui/card/index">
+                    <view
+                      class="card card-index--card-container card-index--card-container-avatar card-index--card-container-avatar-left card-index--card-container-unfull">
+                      <view class="card-index--card-avatar-top">
+                        <view class="card-index--card-avatar-left">
+                          <image lazy-load="true" class="card-index--card-img-avatar sk-image" mode="scaleToFill">
+                          </image>
+                          <view class="card-index--card-avatar">
+                            <text
+                              class="card-index--card-title card-index--card-title-avatar sk-transparent sk-text-18-7500-610 sk-text">不二</text>
+                            <text class="card-index--describe sk-transparent sk-text-18-7500-918 sk-text">2021/05/30
+                              17:49:10</text>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="card-content">
+                        <view is="towxml/towxml" data-num="0" data-pagenum="1">
+                          <view class="h2w h2w-light">
+                            <view class="h2w__main">
+                              <view is="towxml/decode" class="sk-transparent">
+                                <view class="h2w__h1 decode--h2w__h1" data-data="[object Object]" style="border: none;">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-898 sk-text">设计模式
+                                  </view>
+                                </view>
+                                <view class="h2w__h2 decode--h2w__h2" data-data="[object Object]" style="border: none;">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-443 sk-text">1 七大设计原则
+                                  </view>
+                                </view>
+                                <view class="h2w__h3 decode--h2w__h3" data-data="[object Object]" style="true">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-615 sk-text">1.1 单一职责原则
+                                  </view>
+                                </view>
+                                <view class="h2w__p decode--h2w__p" data-data="[object Object]" style="true">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-770 sk-text">每个类只负责一个职责
+                                  </view>
+                                </view>
+                                <view class="h2w__h3 decode--h2w__h3" data-data="[object Object]" style="true">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-401 sk-text">1.2 接口隔离原则
+                                  </view>
+                                </view>
+                                <view class="h2w__p decode--h2w__p" data-data="[object Object]" style="true">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-388 sk-text">
+                                    一个类对另一个类(接口的实现)的依赖应该建立在最小的接口上</view>
+                                </view>
+                                <view class="h2w__h3 decode--h2w__h3" data-data="[object Object]" style="true">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-968 sk-text">1.3
+                                    依赖倒转(倒置)原则</view>
+                                </view>
+                                <view class="h2w__p decode--h2w__p" data-data="[object Object]" style="true">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-714 sk-text">
+                                    上层不能依赖于下层,他们都应该依赖于抽象(面向接口编程)</view>
+                                </view>
+                                <view class="h2w__h3 decode--h2w__h3" data-data="[object Object]" style="true">
+                                  <view is="towxml/decode" class="sk-transparent sk-text-22-2222-273 sk-text">1.4 里式替换原则
+                                  </view>
+                                </view>
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="ulBlend sk-pseudo sk-pseudo-circle" data-num="0" data-pagenum="1"></view>
+                      <view class="avter-share-container">
+                        <view class="like-container">
+                          <view is="miniprogram_npm/lin-ui/icon/index">
+                            <view
+                              class="l-icon icon-index--l-icon l-icon-like icon-index--l-icon-like sk-pseudo sk-pseudo-circle"
+                              style="font-size:15px;color:#F4516C;"></view>
+                          </view>
+                          <view class="number sk-transparent sk-text-18-7500-962 sk-text">0 喜欢</view>
+                        </view>
+                        <view class="like-container">
+                          <view is="miniprogram_npm/lin-ui/icon/index">
+                            <view
+                              class="l-icon icon-index--l-icon l-icon-comment icon-index--l-icon-comment sk-pseudo sk-pseudo-circle"
+                              style="font-size:15px;color:#666;"></view>
+                          </view>
+                          <view class="number sk-transparent sk-text-18-7500-854 sk-text">0 评论</view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view class="card" id="tom">
+                  <view is="miniprogram_npm/lin-ui/card/index">
+                    <view
+                      class="card card-index--card-container card-index--card-container-avatar card-index--card-container-avatar-left card-index--card-container-unfull">
+                      <view class="card-index--card-avatar-top">
+                        <view class="card-index--card-avatar-left">
+                          <image lazy-load="true" class="card-index--card-img-avatar sk-image" mode="scaleToFill">
+                          </image>
+                          <view class="card-index--card-avatar">
+                            <text
+                              class="card-index--card-title card-index--card-title-avatar sk-transparent sk-text-18-7500-309 sk-text">不二</text>
+                            <text class="card-index--describe sk-transparent sk-text-18-7500-751 sk-text">2021/05/09
+                              17:35:05</text>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="card-content">
+                        <view is="towxml/towxml" data-num="1" data-pagenum="1">
+                          <view class="h2w h2w-light">
+                            <view class="h2w__main">
+                              <view is="towxml/decode">
+                                <view class="h2w__section decode--h2w__section sk-image" data-data="[object Object]"
+                                  style="font-size: 16px; color: black; padding: 0 10px; word-spacing: 0px; word-break: break-word; word-wrap: break-word; text-align: left; line-height: 1.25; font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light; letter-spacing: 2px; background-image: linear-gradient(90deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%), linear-gradient(360deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%); background-size: 20px 20px; background-position: center center;">
+                                  <view is="towxml/decode" class="sk-transparent">
+                                    <view class="h2w__h1 decode--h2w__h1" data-data="[object Object]"
+                                      style="margin-top: 30px; margin-bottom: 15px; padding: 0px; font-weight: bold; color: black; font-size: 25px; border: none;">
+                                      <view is="towxml/decode">
+                                        <view class="h2w__span decode--h2w__span content decode--content"
+                                          data-data="[object Object]"
+                                          style="display: inline-block; font-weight: bold; color: #773098;">
+                                          <view is="towxml/decode" class="sk-transparent sk-text-10-0000-504 sk-text">
+                                            Java IO流基础</view>
+                                        </view>
+                                        <view class="h2w__span decode--h2w__span suffix decode--suffix"
+                                          data-data="[object Object]" style="true">
+                                          <view is="towxml/decode"></view>
+                                        </view>
+                                      </view>
+                                    </view>
+                                    <view class="h2w__h2 decode--h2w__h2" data-data="[object Object]"
+                                      style="padding: 0px; font-weight: bold; color: black; font-size: 22px; text-align: left; margin: 20px 10px 0px 0px; border: none;">
+                                      <view is="towxml/decode">
+                                        <view class="h2w__span decode--h2w__span content decode--content"
+                                          data-data="[object Object]"
+                                          style="font-size: 18px; font-weight: bold; display: inline-block; padding-left: 10px; border: none;">
+                                          <view is="towxml/decode" class="sk-transparent sk-text-10-0000-879 sk-text">
+                                            IO流的概念：</view>
+                                        </view>
+                                        <view class="h2w__span decode--h2w__span suffix decode--suffix"
+                                          data-data="[object Object]" style="true">
+                                          <view is="towxml/decode"></view>
+                                        </view>
+                                      </view>
+                                    </view>
+                                  </view>
+                                </view>
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+  </view>
+</template>

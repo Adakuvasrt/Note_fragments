@@ -1,0 +1,22 @@
+page,
+text,
+view,
+navigator,
+swiper,
+swiper-item,
+image {
+  /*设置组件全局边距*/
+  margin: 0;
+  padding: 0;
+  /*
+  * 指定元素的宽或高包含padding和border，不包含mmargin。
+  * 如果不设置默认为content-box，元素的宽或高不包含padding和border
+  */
+  box-sizing: border-box;
+}
+
+page {
+  background: #fefefe;
+}
+
+@import 'app-wxa-auto-dark.wxss'

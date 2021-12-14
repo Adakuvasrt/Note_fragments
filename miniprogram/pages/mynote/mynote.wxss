@@ -1,0 +1,79 @@
+
+.avter-share-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.like-container {
+  display: flex;
+  margin: 11rpx;
+}
+
+.number {
+  margin: 6rpx;
+}
+
+
+.avter-content {
+  margin-top: 10rpx;
+  color: #333;
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.avter-share-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.like-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 7rpx;
+  align-items: center
+}
+
+.number {
+  color: #666;
+  font-size: 24rpx;
+  margin-left: 12rpx;
+}
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.body {
+  flex: 1;
+  position: relative;
+}
+
+.body-scroll {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 9rpx;
+  overflow: scroll;
+}
+
+.card {
+  margin: 9rpx auto;
+  width: 100%;
+}

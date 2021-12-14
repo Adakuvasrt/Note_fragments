@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/note/note",
+    "pages/recording/recording",
+    "pages/about/about",
+    "pages/essay/essay",
+    "pages/details/details",
+    "pages/mynote/mynote",
+    "pages/mylikes/mylikes"
+  ],
+  "window": {
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "笔记碎片",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false,
+    "navigationStyle": "default"
+  },
+  "tabBar": {
+    "color": "#bbbbbb",
+    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/地理 (1).png",
+        "selectedIconPath": "img/地理.png"
+      },
+      {
+        "pagePath": "pages/note/note",
+        "text": "笔记",
+        "iconPath": "img/物理 (1).png",
+        "selectedIconPath": "img/物理.png"
+      },
+      {
+        "pagePath": "pages/recording/recording",
+        "text": "复习",
+        "iconPath": "img/汉语文 (1).png",
+        "selectedIconPath": "img/汉语文 (4).png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "我的",
+        "iconPath": "img/政治 (3).png",
+        "selectedIconPath": "img/政治 (4).png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "l-button": "/miniprogram_npm/lin-ui/button/index",
+    "l-card": "/miniprogram_npm/lin-ui/card/index",
+    "icapsule": "/components/capsule/capsule",
+    "towxml": "/towxml/towxml",
+    "l-message": "/miniprogram_npm/lin-ui/message"
+  }
+}

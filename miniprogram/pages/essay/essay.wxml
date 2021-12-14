@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="head">
+    <l-avatar text=" {{essay.nickName}}" placement="right" src="{{essay.avatarUrl}}" />
+    <view class="timeshow">{{essay.timestamp}}</view>
+  </view>
+
+  <view class="body">
+    <view wx:if="{{essay===null}}" class="whenloading">Loading...</view>
+    <towxml nodes="{{essay.article}}" />
+  </view>
+  <view class="footer">
+    <view class="favorite" wx:if="{{isShow}}">
+      <l-button shape="semicircle" type="error" bindtap="like" disabled="{{isLike}}">💖Like it</l-button>
+      <l-message />
+    </view>
+    <view class="newComment" wx:if="{{isShow}}">
+      <view class="square"></view>
+      <view class="mark-title">想法</view>
+      <view class="aline"></view>
+      <textarea class="newcommenttxt" model:value="{{newCommentTxt}}" type="text" placeholder="发表你的想法~"
+        maxlength="400" />
+      <view class="btn">
+        <l-button bindtap="publishComment">Send</l-button>
+      </view>
+    </view>
+
+    <view class="comment">
+      <view class="commentItem" wx:for="{{essay.comment}}" wx:key="_id">
+        <view class="commetinfo">
+          <view class="commerinfo">
+            <l-avatar class="commerHead" shape="square" size="70" src="{{item.avatarUrl}}" /> {{item.nickName}}</view>
+          <view class="timeshow">{{item.timestamp}}</view>
+        </view>
+        <view class="commenttext">{{item.txt}}</view>
+      </view>
+    </view>
+  </view>
+</view>

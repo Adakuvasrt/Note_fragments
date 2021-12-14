@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="pic">
+    <image src="/img/reading.svg" mode="widthFix"></image>
+  </view>
+  <view class="content" id="rocordnote">
+      <towxml nodes="{{essay.article}}" />
+  </view>
+
+  <view class="btns">
+    <view class="btn">
+      <l-button type="default" size="large" bindtap="gogo">💫 随机漫步</l-button>
+    </view>
+  </view>
+</view>

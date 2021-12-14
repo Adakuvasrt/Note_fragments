@@ -1,0 +1,82 @@
+<view class="container">
+
+  <l-segment style="height:40px" bind:linchange="changeTabs" id="tab" model:activeKey="{{activekey}}">
+    <l-segment-item tab="个人笔记" key="0" />
+    <l-segment-item tab="笔记广场" key="1" />
+    <!-- <l-segment-item tab="xxxx" key="2" /> -->
+  </l-segment>
+
+  <view class="body" wx:if="{{loading==false}}">
+    <swiper bindchange="scollTab" model:current="{{currentIndex}}" style="height:95vh">
+      <swiper-item>
+        <scroll-view refresher-enabled="true" bindrefresherrefresh="refresh1" refresher-triggered="{{triggered}}"
+          bindscrolltolower="scrolltolower1" scroll-y="true" enable-back-to-top scroll-anchoring class="body-scroll">
+          <view class="cards">
+            <view id="tom" class="card" wx:for="{{essays1}}" wx:key="index">
+              <l-card type="avatar" l-class="card" image="{{essays1[index].avatarUrl}}"
+                title="{{essays1[index].nickName}}" describe="{{essays1[index].timestamp}}">
+                <view class="card-content">
+                  <towxml data-num="{{index}}" data-pagenum="1" nodes="{{essays1[index].article}}"
+                    bindtap="clickCard" />
+                </view>
+                <view class="ulBlend" data-num="{{index}}" data-pagenum="1" bindtap="clickCard"></view>
+                <view class="avter-share-container">
+                  <view class="like-container">
+                    <l-icon name="like" color="#F4516C" size="28" />
+                    <view class="number">{{item.likenum}} 喜欢</view>
+                  </view>
+                  <view class="like-container">
+                    <l-icon name="comment" color="#666" size="28" />
+                    <view class="number">{{item.comment.length}} 评论</view>
+                  </view>
+                </view>
+              </l-card>
+            </view>
+            <l-loadmore show="{{!haveloadall1}}" type="loading" loading-text="努力加载中~" line="{{true}}">
+            </l-loadmore>
+            <l-loadmore show="{{haveloadall1}}" type="end" line="{{true}}">
+            </l-loadmore>
+          </view>
+        </scroll-view>
+      </swiper-item>
+
+      <swiper-item>
+        <scroll-view refresher-enabled="true" bindrefresherrefresh="refresh2" refresher-triggered="{{triggered}}"
+          bindscrolltolower="scrolltolower2" scroll-y="true" enable-back-to-top scroll-anchoring class="body-scroll">
+          <view class="cards">
+            <view id="tom" class="card" wx:for="{{essays2}}" wx:key="index" data-num="{{index}}" data-page="2">
+              <l-card type="avatar" l-class="card" image="{{essays2[index].avatarUrl}}"
+                title="{{essays2[index].nickName}}" describe="{{essays2[index].timestamp}}">
+                <view class="avter-content">
+                  <towxml data-num="{{index}}" data-pagenum="2" nodes="{{essays2[index].article}}"
+                    bindtap="clickCard" />
+                </view>
+                <view class="avter-share-container">
+                  <view class="like-container">
+                    <l-icon name="like" color="#F4516C" size="28" />
+                    <view class="number">{{item.likenum}} 喜欢</view>
+                  </view>
+                  <view class="like-container">
+                    <l-icon name="comment" color="#666" size="28" />
+                    <view class="number">{{item.comment.length}} 评论</view>
+                  </view>
+                </view>
+                <!-- <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
+                  + 关注
+                </l-tag> -->
+              </l-card>
+            </view>
+            <l-loadmore show="{{!haveloadall2}}" type="loading" loading-text="努力加载中~" line="{{true}}">
+            </l-loadmore>
+            <l-loadmore show="{{haveloadall2}}" type="end" line="{{true}}">
+            </l-loadmore>
+          </view>
+        </scroll-view>
+      </swiper-item>
+
+    </swiper>
+  </view>
+
+  <view class="waitload" wx:if="{{loading==true}}">Loading...</view>
+
+</view>

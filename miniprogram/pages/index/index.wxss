@@ -1,0 +1,113 @@
+page {
+  margin: 0;
+  padding: 0;
+}
+
+.avter-share-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.like-container {
+  display: flex;
+  margin: 11rpx;
+}
+
+.number {
+  margin: 6rpx;
+}
+
+
+.avter-content {
+  margin-top: 10rpx;
+  color: #333;
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.avter-share-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.like-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 7rpx;
+  align-items: center
+}
+
+.number {
+  color: #666;
+  font-size: 24rpx;
+  margin-left: 12rpx;
+}
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.body {
+  flex: 1;
+}
+
+.body-scroll {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 9rpx;
+  overflow: scroll;
+}
+
+.card {
+  margin: 12rpx auto;
+  width: 100%;
+}
+
+.card-content {
+  height: 39vh;
+  overflow: hidden;
+}
+
+.ulBlend::before {
+  content: "";
+  position: absolute;
+  width: 95%;
+  height: 62px;
+  margin-top: -60px;
+  left: 10px;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 1)));
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
+  background: linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
+}
+
+.showAll {
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+.waitload {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 20vh;
+}
