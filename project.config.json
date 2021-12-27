@@ -40,7 +40,7 @@
     },
     "appid": "wx4122b9f2e3738a74",
     "projectname": "NoteFragments",
-    "libVersion": "2.19.1",
+    "libVersion": "2.18.1",
     "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
     "condition": {
         "search": {

@@ -32,6 +32,7 @@ Page({
   clickCard(e) {
     let num = JSON.stringify(e.currentTarget.dataset.num);
     let tag = JSON.stringify(e.currentTarget.dataset.pagenum);
+    console.log("tag:"+tag+", num: "+num);
     wx.navigateTo({
       url: '/pages/essay/essay?num=' + encodeURIComponent(num) + '&tag=' + encodeURIComponent(tag)
     })
@@ -42,7 +43,7 @@ Page({
         openId: app.globalData.openId,
       }).sort({
         timestamp: -1
-      }).limit(2).end()
+      }).limit(3).end()
       .then(res => {
         if (res.list.length === 0) {
           console.log("已经获取全部笔记,没有新笔记了");
@@ -51,11 +52,12 @@ Page({
           })
           return;
         } else {
+          this.setData({
+            essays1: []
+          })
           for (let index = 0; index < res.list.length; index++) {
             res.list[index].article = app.towxml(res.list[index].content, 'markdown')
-            this.setData({
-              essays1: []
-            })
+
             this.setData({
               essays1: this.data.essays1.concat(res.list[index])
             })
@@ -82,11 +84,12 @@ Page({
         timestamp: -1
       }).limit(2).end()
       .then(res => {
+        this.setData({
+          essays2: []
+        })
         for (let index = 0; index < res.list.length; index++) {
           res.list[index].article = app.towxml(res.list[index].content, 'markdown')
-          this.setData({
-            essays2: []
-          })
+
           this.setData({
             essays2: this.data.essays2.concat(res.list[index])
           })

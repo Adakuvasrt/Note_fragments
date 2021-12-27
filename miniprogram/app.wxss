@@ -18,5 +18,3 @@ image {
 page {
   background: #fefefe;
 }
-
-@import 'app-wxa-auto-dark.wxss'

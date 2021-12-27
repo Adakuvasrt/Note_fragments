@@ -29,7 +29,7 @@ Page({
     }
     this.setData({
       radioItems: radioItems,
-      overt: e.detail.value==1
+      overt: e.detail.value == 1
     });
   },
 
@@ -82,14 +82,7 @@ Page({
         }
       })
     } else {
-      let tag
-      if (this.data.select1) {
-        tag = 1
-      } else if (this.data.select2) {
-        tag = 2
-      } else {
-        tag = 3
-      }
+      let tag = 1
       let c = JSON.stringify(this.data.content)
       let t = JSON.stringify(tag)
       let p = JSON.stringify(this.data.overt)
